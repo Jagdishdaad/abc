@@ -1,0 +1,40 @@
+.Rsmp {
+  display: flex;
+  flex-direction: column;
+  left: 347px;
+
+  position: absolute;
+}
+.Rsp1 {
+  display: flex;
+
+  font-family: Open Sans;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 24px;
+  line-height: 33px;
+  letter-spacing: 0.4px;
+  color: #ffffff;
+}
+.Rsp2 {
+  display: flex;
+
+  position: absolute;
+
+  top: 2229px;
+}
+.Rspp1 {
+  display: flex;
+  position: relative;
+  width: 612px !important;
+  height: 381px !important;
+  margin-bottom: 100px !important;
+  background-color: #2d2d2d;
+}
+.Rspp2 {
+  position: relative;
+
+  width: 400px !important;
+  margin-left: 14px;
+  height: 224px;
+}

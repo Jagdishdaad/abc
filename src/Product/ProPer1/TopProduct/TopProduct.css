@@ -1,0 +1,9 @@
+.Tablestyle {
+  position: absolute;
+  width: 257px !important;
+  height: 448px !important;
+  overflow: hidden !important;
+  left: 1119px;
+  top: 440px;
+  background-color: #2d2d2d !important;
+}

@@ -1,0 +1,7 @@
+.salesMain {
+  display: flex;
+  width: 75%;
+  margin-left: 25%;
+  margin-top: 10%;
+  justify-content: space-between;
+}

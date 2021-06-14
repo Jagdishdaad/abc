@@ -1,0 +1,44 @@
+.popularServices {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 363px;
+  height: 256px;
+  border-radius: 10px;
+  margin-bottom: 17px;
+  margin-left: 30px;
+  background: #2d2d2d;
+  padding: 10px !important;
+  border: 0.5px solid #ffffff;
+  box-sizing: border-box;
+  border-radius: 10px;
+}
+.popularline1 {
+  font-family: Open Sans !important;
+  font-style: normal;
+  font-weight: 600 !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  display: flex;
+
+  letter-spacing: 0.44px !important;
+
+  /* White */
+
+  color: #ffffff;
+}
+.popularline2 {
+  font-family: Open Sans !important ;
+  font-style: normal;
+  font-weight: 300 !important;
+  font-size: 13px !important;
+  line-height: 20px !important;
+  display: flex;
+  margin-top: 1% !important;
+
+  letter-spacing: 0.25px !important;
+
+  /* White */
+
+  color: #ffffff;
+}
