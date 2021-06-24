@@ -176,11 +176,9 @@ const rows = [
 
 const useStyles = makeStyles({
   root: {
-    position: "absolute",
-    width: "1050px !important",
-    left: "279px",
-    height: "456px",
-    top: "600px",
+    width: "100% !important",
+    padding: "5vw",
+    height: "50vw",
     background: "#121417 !important",
     boxSizing: "border-box",
   },

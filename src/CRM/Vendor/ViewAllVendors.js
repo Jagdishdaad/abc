@@ -6,7 +6,7 @@ import SelectRegion from "../Components/SelectRegion";
 
 import VendorTable from "./VendorTable";
 
-function ViewAllVendors() {
+function ViewAllVendors({ setIndex }) {
   return (
     <div>
       <div
@@ -26,6 +26,7 @@ function ViewAllVendors() {
               marginTop: "2%",
               marginRight: "3%",
             }}
+            onClick={() => setIndex(7)}
           />
           <Typography
             style={{

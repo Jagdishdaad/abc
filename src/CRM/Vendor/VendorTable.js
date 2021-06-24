@@ -3,177 +3,44 @@ import CRMTable from "../Components/CRMTable/CRMTable.js";
 import { makeStyles } from "@material-ui/core/styles";
 
 const columns = [
-  { id: "product", label: "Product", align: "center" },
-  { id: "requestby", label: "Request By", align: "center" },
-  {
-    id: "vendor",
-    label: "Vendor",
-
-    align: "center",
-  },
-  {
-    id: "deliveryaddress",
-    label: "Delivery Address",
-
-    align: "center",
-  },
-  {
-    id: "deliverydate",
-    label: "Delivery Date",
-
-    align: "center",
-  },
-  {
-    id: "amount",
-    label: "Amount",
-
-    align: "center",
-  },
-  {
-    id: "status",
-    label: "Status",
-
-    align: "center",
-  },
+  { id: "vendor", label: "Vendor", align: "center" },
+  { id: "company", label: "Company", align: "center" },
+  { id: "location", label: "Location", align: "center" },
+  { id: "leads", label: "Leads", align: "center" },
+  { id: "noofservices", label: "No. Of Services", align: "center" },
+  { id: "actions", label: "Actions", align: "center" },
 ];
 
-function createData(
-  product,
-  requestby,
-  vendor,
-  deliveryaddress,
-  deliverydate,
-  amount,
-  status
-) {
+function createData(vendor, company, location, leads, noofservices, actions) {
   return {
-    product,
-    requestby,
     vendor,
-    deliveryaddress,
-    deliverydate,
-    amount,
-    status,
+    company,
+    location,
+    leads,
+    noofservices,
+    actions,
   };
 }
 
 const rows = [
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
 ];
 const useStyles = makeStyles({
   root: {
-    position: "absolute",
     width: "953px !important",
-    left: "362px",
+    marginTop: "2%",
     height: "504px",
-    top: "208px",
+
     background: "#121417 !important",
     boxSizing: "border-box",
   },

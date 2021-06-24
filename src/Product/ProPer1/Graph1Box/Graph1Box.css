@@ -1,18 +1,14 @@
 .graph1Box {
-  position: absolute;
   display: flex;
   flex-direction: column;
   justify-content: space-between !important;
-  position: absolute;
-  width: 727px !important;
-  height: 546px !important;
-  top: 365px;
-  left: 333px;
+  width: 46vw !important;
+  height: 80vh !important;
+
   background: #121417;
 }
 
 .line1 {
-  position: relative;
   width: 364px;
   height: 33px;
   font-family: Open Sans !important;
@@ -24,7 +20,6 @@
   color: #ffffff;
 }
 .line2 {
-  position: absolute;
   width: 364px;
   height: 16px;
 
@@ -37,10 +32,8 @@
   color: #ffffff;
 }
 .line3 {
-  position: relative;
   width: 652px;
   height: 32px;
-  left: 0px;
 
   font-family: Open Sans !important;
   font-style: normal;
@@ -57,10 +50,9 @@
 }
 
 .graph1Box1 Button {
-  position: relative;
-  height: 30px !important;
-  top: 8px;
-  width: 98.33px !important;
-  border: 0.5px solid #ffb600 !important;
+  height: 5vh !important;
+  top: 2vh;
+  width: 7vw !important;
+  border: 0.1vh solid #ffb600 !important;
   box-sizing: border-box !important;
 }

@@ -29,7 +29,7 @@ function ProductPerformance2() {
   };
   return (
     <div className="proPer2">
-      <div>
+      <div className="proPer21">
         <div style={{ display: "flex" }}>
           <Typography className="proPer2Line1">Product Performance</Typography>
 
@@ -71,7 +71,7 @@ function ProductPerformance2() {
             Year
           </ToggleButton>
         </ToggleButtonGroup>
-        <div>
+        <div style={{ marginTop: "15vh" }}>
           <Chart2 />
         </div>
       </div>

@@ -1,0 +1,26 @@
+.Card{
+    width:300px;
+    height: 550px;
+    color:white;
+    background: #2D2D2D !important;
+    border: 0.1px solid #FFFFFF;
+    border-radius: 10px !important;
+}
+.Status{
+    display:flex;
+    justify-content:row;
+    justify-content:space-between; 
+    margin-top: 30%;
+}
+.icon1{
+    color: #3CC13B;
+}
+.icon2{
+    color: yellow;
+}
+.icon3{
+    color: red;
+}
+.icon4{
+    color: #56CCF2;
+}

@@ -1,9 +1,8 @@
 .Tablestyle {
-  position: absolute;
-  width: 257px !important;
-  height: 448px !important;
+  width: 20vw !important;
+  height: 74vh !important;
   overflow: hidden !important;
-  left: 1119px;
-  top: 440px;
+  margin-top: 8vh;
+
   background-color: #2d2d2d !important;
 }

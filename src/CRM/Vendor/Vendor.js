@@ -2,11 +2,12 @@ import { Button, Divider, Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
 import Support from "../Support/Support";
-import VendorChart from "./VendorChart";
-import VendorTable from "./VendorTable";
 import "./Vendor.css";
 
-function Vendor() {
+import VendorsChart from "./VendorChart";
+import VendorTable from "./VendorTable";
+
+function Vendor({ setIndex }) {
   const [istoday, setistoday] = useState(true);
   const [ismonth, setismonth] = useState(false);
   const [isyear, setisyear] = useState(false);
@@ -27,14 +28,19 @@ function Vendor() {
     setisyear(true);
   };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginLeft: "7%",
+        marginTop: "5%",
+      }}
+    >
       <div
         style={{
-          position: "absolute",
           width: "1105px",
           display: "flex",
-          left: "295px",
-          top: "141.5px",
+
           justifyContent: "space-between",
         }}
       >
@@ -67,31 +73,32 @@ function Vendor() {
             fontStyle: "normal",
             textTransform: "unset",
           }}
+          onClick={() => setIndex(71)}
         >
           View all Vendors
         </Button>
       </div>
       <Divider
         style={{
-          position: "absolute",
           width: "1105px",
           height: "0px",
-          left: "295px",
-          top: "185px",
-
+          marginTop: "1%",
           border: "2px solid #2D2D2D",
         }}
       />
       <VendorTable />
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div
           style={{
-            position: "absolute",
-            top: "800.3px",
             display: "flex",
-            left: "295px",
             justifyContent: "space-between",
             width: "1105px",
+            marginTop: "5%",
           }}
         >
           <Typography
@@ -110,7 +117,7 @@ function Vendor() {
             Services
           </Typography>
 
-          <ToggleButtonGroup exclusive className="vendorBtnGrp">
+          <ToggleButtonGroup exclusive className="VendorBtnGrp">
             <ToggleButton
               onClick={todayClicked}
               style={{
@@ -145,10 +152,6 @@ function Vendor() {
         </div>
         <Typography
           style={{
-            position: "absolute",
-            left: "295px",
-
-            top: "842.8px",
             width: "603px",
             height: "16px",
             fontFamily: "Open Sans",
@@ -162,7 +165,9 @@ function Vendor() {
         >
           as of 25 May 2021,9:41 PM
         </Typography>
-        <VendorChart />
+
+        <VendorsChart />
+
         <Support />
       </div>
     </div>

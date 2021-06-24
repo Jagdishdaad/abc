@@ -9,11 +9,22 @@ import ProPer1 from "./ProPer1/ProPer1";
 
 function Product() {
   return (
-    <div className="product">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+      }}
+    >
       <Sales />
       <ProPer1 />
       <ProductPerformance2 />
-      <ProductList />
+      <div
+        style={{
+          width: "100%",
+        }}
+      >
+        <ProductList />
+      </div>
       <RegionalSales />
     </div>
   );

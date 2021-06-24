@@ -69,7 +69,7 @@ const options = {
 
 function Chart2() {
   return (
-    <div style={{ width: "600px", height: "300px", marginTop: "117.98px" }}>
+    <div>
       <Line data={data} legend={legend} options={options} />
     </div>
   );

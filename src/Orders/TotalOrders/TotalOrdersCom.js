@@ -9,7 +9,8 @@ function TotalOrdersCom(props) {
       style={{
         display: "flex",
         flexDirection: "column",
-        justifyContent: "space-between",
+
+        marginTop: "1.5vw",
       }}
     >
       <div>
@@ -17,15 +18,12 @@ function TotalOrdersCom(props) {
           style={{
             width: "42px",
             height: "33px",
-
             fontFamily: "Open Sans",
             fontStyle: "normal",
             fontWeight: "normal",
             fontSize: "24px",
             lineHeight: "33px",
-
             textAlign: "center",
-
             color: "#FFFFFF",
           }}
         >
@@ -35,7 +33,7 @@ function TotalOrdersCom(props) {
       <div
         style={{
           display: "flex",
-          width: "240px",
+          width: "18vw",
           justifyContent: "space-between",
           marginBottom: "5px",
         }}
@@ -81,7 +79,7 @@ function TotalOrdersCom(props) {
         <Progress
           completed={per}
           color="#FFB600"
-          style={{ width: 240, backgroundColor: "#2D2D2D", radius: 2 }}
+          style={{ width: "18vw", backgroundColor: "#2D2D2D", radius: 2 }}
         />
       </div>
     </div>

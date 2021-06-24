@@ -7,10 +7,9 @@ function TotalOrders() {
       style={{
         display: "flex",
         flexDirection: "column",
-        position: "absolute",
+        marginTop: "5%",
         width: "294px",
         height: "291px",
-        top: "191px",
         justifyContent: "space-between",
         background: "#121417",
         borderRadius: "4px",

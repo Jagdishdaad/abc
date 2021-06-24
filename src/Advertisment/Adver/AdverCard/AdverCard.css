@@ -1,0 +1,13 @@
+
+.Adver-Card{
+    display: flex !important;
+    justify-content: space-between !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    padding: 2% 5% !important;
+    height: 100% !important;
+    margin: 2% !important;
+    background: #2D2D2D !important;
+    border: 0.5px solid #FFFFFF;
+    border-radius: 20px !important; 
+}

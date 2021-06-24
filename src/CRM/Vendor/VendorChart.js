@@ -51,12 +51,8 @@ const options = {
 };
 const useStyles = makeStyles({
   chart: {
-    position: "absolute",
     width: "1105px",
     height: "380px ",
-    left: "295px",
-    right: "40px",
-    top: "750.8px",
   },
 });
 

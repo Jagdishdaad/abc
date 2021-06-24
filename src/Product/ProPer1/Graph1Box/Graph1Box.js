@@ -34,7 +34,7 @@ function Graph1Box() {
         <div
           style={{
             display: "flex",
-            width: "727px",
+            width: "100vh",
             justifyContent: "space-between",
             lineHeignt: "0.2",
           }}

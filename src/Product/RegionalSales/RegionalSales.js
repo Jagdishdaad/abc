@@ -6,32 +6,31 @@ import RegionalSalesMap from "./RegionalSalesMap/RegionalSalesMap";
 
 function RegionalSales() {
   return (
-    <div className="Rsmp">
-      <div className="Rsp1">
-        <Typography
-          style={{
-            position: "absolute",
-            width: "400px",
-            height: "33px",
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
 
-            top: "2179px",
-            fontFamily: "Open Sans",
-            fontStyle: "normal",
-            fontWeight: "bold",
-            fontSize: "24px",
-            lineHeight: "33px",
-            /* identical to box height */
+        width: "100%",
+      }}
+    >
+      <Typography
+        style={{
+          display: "flex",
+          marginLeft: "3vw",
+          fontFamily: "Open Sans",
+          fontStyle: "normal",
+          fontWeight: "bold",
+          fontSize: "24px",
+          lineHeight: "33px",
+          letterSpacing: "0.4px",
+          marginBottom: "2%",
+          color: "#FFFFFF",
+        }}
+      >
+        Regional Sales
+      </Typography>
 
-            letterSpacing: "0.4px",
-
-            /* White */
-
-            color: "#FFFFFF",
-          }}
-        >
-          Regional Sales
-        </Typography>
-      </div>
       <div className="Rsp2">
         <div className="Rspp1">
           <RegionalSalesMap />

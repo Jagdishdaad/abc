@@ -1,21 +1,46 @@
 import { Button, Divider, Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
-import React from "react";
+import React, { useState } from "react";
 import Support from "../Support/Support";
+import "./Customer.css";
 
 import CustomersChart from "./CustomersChart";
 import CustomerTable from "./CustomerTable";
 
 function Customer() {
+  const [istoday, setistoday] = useState(true);
+  const [ismonth, setismonth] = useState(false);
+  const [isyear, setisyear] = useState(false);
+
+  const todayClicked = () => {
+    setistoday(true);
+    setismonth(false);
+    setisyear(false);
+  };
+  const monthClicked = () => {
+    setistoday(false);
+    setismonth(true);
+    setisyear(false);
+  };
+  const yearClicked = () => {
+    setistoday(false);
+    setismonth(false);
+    setisyear(true);
+  };
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        marginLeft: "7%",
+        marginTop: "5%",
+      }}
+    >
       <div
         style={{
-          position: "absolute",
           width: "1105px",
           display: "flex",
-          left: "295px",
-          top: "141.5px",
+
           justifyContent: "space-between",
         }}
       >
@@ -54,25 +79,25 @@ function Customer() {
       </div>
       <Divider
         style={{
-          position: "absolute",
           width: "1105px",
           height: "0px",
-          left: "295px",
-          top: "185px",
-
+          marginTop: "1%",
           border: "2px solid #2D2D2D",
         }}
       />
       <CustomerTable />
-      <div>
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "column",
+        }}
+      >
         <div
           style={{
-            position: "absolute",
-            top: "800.3px",
             display: "flex",
-            left: "295px",
             justifyContent: "space-between",
             width: "1105px",
+            marginTop: "5%",
           }}
         >
           <Typography
@@ -91,37 +116,33 @@ function Customer() {
             Services
           </Typography>
 
-          <ToggleButtonGroup
-            exclusive
-            style={{
-              height: "30px",
-              left: "1105px",
-              top: "806px",
-
-              boxSizing: "border-box",
-              borderRadius: "4px",
-            }}
-          >
+          <ToggleButtonGroup exclusive className="customerBtnGrp">
             <ToggleButton
+              onClick={todayClicked}
               style={{
-                border: " 1px solid #ffb600",
-                color: "#ffb600 ",
+                backgroundColor: istoday ? "#ffb600" : "#121417",
+                color: istoday ? "#121417" : "#ffb600",
+                textTransform: "unset",
               }}
             >
               Today
             </ToggleButton>
             <ToggleButton
+              onClick={monthClicked}
               style={{
-                border: " 1px solid #ffb600",
-                color: "#ffb600 ",
+                backgroundColor: ismonth ? "#ffb600" : "#121417",
+                color: ismonth ? "#121417" : "#ffb600",
+                textTransform: "unset",
               }}
             >
               Month
             </ToggleButton>
             <ToggleButton
+              onClick={yearClicked}
               style={{
-                border: " 1px solid #ffb600",
-                color: "#ffb600 ",
+                backgroundColor: isyear ? "#ffb600" : "#121417",
+                color: isyear ? "#121417" : "#ffb600",
+                textTransform: "unset",
               }}
             >
               Year
@@ -130,10 +151,6 @@ function Customer() {
         </div>
         <Typography
           style={{
-            position: "absolute",
-            left: "295px",
-
-            top: "842.8px",
             width: "603px",
             height: "16px",
             fontFamily: "Open Sans",
@@ -147,7 +164,9 @@ function Customer() {
         >
           as of 25 May 2021,9:41 PM
         </Typography>
+
         <CustomersChart />
+
         <Support />
       </div>
     </div>

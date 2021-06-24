@@ -1,0 +1,9 @@
+.NavItemActive {
+  background-color: #ffb600;
+  padding: 5%;
+  border-radius: 5px;
+  color: black;
+}
+.NavItemPassive {
+  background-color: transparent;
+}

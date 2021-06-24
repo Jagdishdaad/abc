@@ -55,8 +55,8 @@ function OrderChart1() {
   return (
     <div
       style={{
-        width: "776px",
-        height: "392px",
+        width: "45vw",
+        height: "60vh",
       }}
     >
       <Line data={data} legend={legend} options={options} />

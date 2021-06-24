@@ -30,22 +30,22 @@ function TopProduct() {
           <TableHead>
             <TableRow
               style={{
-                border: "1px solid #121417",
+                border: "0.1vh solid #121417",
 
-                borderRadius: "4px 4px 0px 0px",
+                borderRadius: "0.4vh 0.4vh 0vh 0vh",
               }}
             >
               <TableCell
                 style={{
                   fontFamily: "Open Sans",
                   fontStyle: "normal",
-                  fontWeight: 600,
-                  fontSize: "18px",
-                  lineHeight: "25px",
-                  letterSpacing: "0.4px",
+                  fontWeight: "bold",
+                  fontSize: "1rem",
+                  lineHeight: "2vh",
+                  letterSpacing: "0.04vh",
                   color: "#FFFFFF",
-                  paddingTop: "17px",
-                  paddingBottom: "17px",
+                  paddingTop: "3vh",
+                  paddingBottom: "3vh",
                 }}
               >
                 Top Product
@@ -53,8 +53,8 @@ function TopProduct() {
               <TableCell
                 style={{
                   color: "#FFFFFF",
-                  paddingTop: "17px",
-                  paddingBottom: "17px",
+                  paddingTop: "3vh",
+                  paddingBottom: "3vh",
                 }}
               >
                 (Month)
@@ -71,16 +71,16 @@ function TopProduct() {
                     fontFamily: "Open Sans",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    fontSize: "14px",
-                    lineHeight: "19px",
-                    letterSpacing: "0.4px",
+                    fontSize: "1rem",
+                    lineHeight: "3vh",
+                    letterSpacing: "0.04vh",
                     color: "#FFFFFF",
-                    border: "1px solid #121417",
+                    border: "0.1vh solid #121417",
                     boxSizing: "border-box",
                     borderRight: "0",
-                    paddingTop: "18px",
-                    paddingBottom: "18px",
-                    borderRadius: "4px 4px 0px 0px",
+                    paddingTop: "2.7vh",
+                    paddingBottom: "2.7vh",
+                    borderRadius: "0.4vh 0.4vh 0vh 0vh",
                   }}
                 >
                   {row.name}
@@ -91,16 +91,16 @@ function TopProduct() {
                     fontFamily: "Open Sans",
                     fontStyle: "normal",
                     fontWeight: 600,
-                    fontSize: "14px",
-                    lineHeight: "19px",
-                    letterSpacing: "0.4px",
+                    fontSize: "1rem ",
+                    lineHeight: "4vh",
+                    letterSpacing: "0.04vh",
                     color: "#FFFFFF",
-                    border: "1px solid #121417",
+                    border: "0.1vh solid #121417",
                     boxSizing: "border-box",
                     borderLeft: "0",
-                    paddingTop: "18px",
-                    paddingBottom: "18px",
-                    borderRadius: "4px 4px 0px 0px",
+                    paddingTop: "2.7vh",
+                    paddingBottom: "2.7vh",
+                    borderRadius: "0.4vh 0.4vh 0vh 0vh",
                   }}
                 >
                   {row.sales}

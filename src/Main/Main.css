@@ -1,0 +1,15 @@
+.NavItemActive {
+  background-color: #ffb600 !important;
+  padding: 5% !important;
+  border-radius: 5px !important;
+  color: white !important;
+}
+.NavItemPassive {
+  background-color: #2d2d2d !important;
+  color: white !important;
+}
+.AccDetail {
+  display: flex;
+  flex-direction: column;
+  background-color: #2d2d2d !important;
+}

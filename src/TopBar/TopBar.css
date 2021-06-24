@@ -1,0 +1,18 @@
+.topdiv {
+  padding: 2%;
+  display: flex;
+  justify-content: space-between;
+  background-color: #121417;
+}
+.toprightdiv {
+  display: flex;
+}
+.searchbox {
+  background-color: #2d2d2d;
+  width: 80%;
+  border-radius: 5px;
+  padding: 0.5%;
+  padding-left: 1%;
+  color: white;
+  margin-left: 12%;
+}

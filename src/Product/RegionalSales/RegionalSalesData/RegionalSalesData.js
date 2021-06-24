@@ -32,9 +32,7 @@ function RegionalSalesData() {
                   borderBottom: "none !important",
                 }}
               >
-                <TableCell component="th" scope="row">
-                  {row.name}
-                </TableCell>
+                <TableCell scope="row">{row.name}</TableCell>
                 <TableCell align="right">{row.sales}</TableCell>
               </TableRow>
             ))}

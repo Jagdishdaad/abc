@@ -4,7 +4,15 @@ import TopProduct from "./TopProduct/TopProduct";
 
 function ProPer1() {
   return (
-    <div className="proPer">
+    <div
+      style={{
+        display: "flex",
+        width: "100%",
+        marginTop: "10vh",
+        justifyContent: "space-between",
+        justifyContent: "space-around",
+      }}
+    >
       <Graph1Box />
       <TopProduct />
     </div>

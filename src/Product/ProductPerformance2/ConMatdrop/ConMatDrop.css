@@ -1,7 +1,6 @@
 #dropdownbutton {
-  width: 220px;
-  height: 48px;
-  margin-left: 429px;
+  width: 25vh;
+  height: 5vh;
   background: #56ccf2;
-  border-radius: 4px;
+  border-radius: 1vh;
 }
