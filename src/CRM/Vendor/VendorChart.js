@@ -51,8 +51,8 @@ const options = {
 };
 const useStyles = makeStyles({
   chart: {
-    width: "1105px",
-    height: "380px ",
+    width: "70vw",
+    marginTop: "-13vh",
   },
 });
 

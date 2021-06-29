@@ -1,4 +1,5 @@
 import React from "react";
+import { Typography } from "@material-ui/core";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,6 +11,7 @@ import TableRow from "@material-ui/core/TableRow";
 
 function CRMTable(props) {
   const useStyles = props.useStyles;
+
   const rows = props.rows;
   const columns = props.columns;
   const classes = useStyles();
@@ -24,6 +26,7 @@ function CRMTable(props) {
     setRowsPerPage(+event.target.value);
     setPage(0);
   };
+
   return (
     <div>
       <Paper className={classes.root}>
@@ -62,6 +65,14 @@ function CRMTable(props) {
                             align="center"
                             className={classes.column}
                           >
+                            {column.label === "Actions" && (
+                              <Typography
+                                style={{ cursor: "pointer" }}
+                                onClick={() => props.setIndex(props.value)}
+                              >
+                                view
+                              </Typography>
+                            )}{" "}
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}

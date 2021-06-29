@@ -23,17 +23,17 @@ function createData(vendor, company, location, leads, noofservices, actions) {
 }
 
 const rows = [
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10", "View"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
+  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
 ];
 const useStyles = makeStyles({
   root: {
@@ -70,10 +70,16 @@ const useStyles = makeStyles({
   footer: { color: "#F5F5F5" },
 });
 
-function VendorTable() {
+function VendorTable({ setIndex }) {
   return (
     <div>
-      <CRMTable columns={columns} rows={rows} useStyles={useStyles} />
+      <CRMTable
+        columns={columns}
+        rows={rows}
+        useStyles={useStyles}
+        setIndex={setIndex}
+        value={72}
+      />
     </div>
   );
 }

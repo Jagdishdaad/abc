@@ -11,7 +11,7 @@ function Support() {
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        marginTop: "25%",
+        marginTop: "10vh",
       }}
     >
       <Typography
@@ -33,7 +33,7 @@ function Support() {
           display: "flex",
           marginTop: "20% !important",
 
-          width: "1080px",
+          width: "70vw",
           justifyContent: "space-between",
         }}
       >

@@ -5,7 +5,7 @@ import ContactCard from "../../Components/ContactCard/ContactCard";
 import CustomerOrder from "./CustomerOrder";
 import CustomerOrderCard from "./CustomerOrderCard";
 
-function CustomerDetail() {
+function CustomerDetail({ setIndex }) {
   return (
     <div
       style={{
@@ -131,7 +131,10 @@ function CustomerDetail() {
           padding: "20px",
         }}
       >
-        <Close style={{ fill: "#FFFFFF", marginLeft: "2470%" }} />
+        <Close
+          style={{ fill: "#FFFFFF", marginLeft: "2470%", cursor: "pointer" }}
+          onClick={() => setIndex(8)}
+        />
         <CustomerOrderCard />
       </div>
     </div>

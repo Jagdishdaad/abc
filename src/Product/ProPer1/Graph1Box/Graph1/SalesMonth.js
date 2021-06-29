@@ -45,11 +45,7 @@ const options = {
     position: "right",
   },
   scales: {
-    x: {
-      stacked: true,
-    },
     y: {
-      stacked: true,
       grid: {
         borderWidth: 0,
         color: "#C4C4C4",

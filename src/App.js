@@ -1,5 +1,5 @@
 import "./App.css";
-
+import { useState } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Customer from "./CRM/Customer/Customer";
 import CustomerDetail from "./CRM/Customer/CustomerDetail/CustomerDetail";
@@ -14,6 +14,7 @@ import Main from "./Main/Main";
 
 function App() {
   const window = UseWindowSize();
+  const [index, setIndex] = useState(0);
 
   return (
     <div
@@ -23,7 +24,16 @@ function App() {
         overflow: "hidden",
       }}
     >
-      <Main />
+      {index}
+      {index === 72 || index === 82 ? (
+        index === 72 ? (
+          <VendorDetail setIndex={setIndex} />
+        ) : (
+          <CustomerDetail setIndex={setIndex} />
+        )
+      ) : (
+        <Main setIndex={setIndex} index={index} />
+      )}
       {/* <Router>
         <Switch>
           <Route path="/vendor">

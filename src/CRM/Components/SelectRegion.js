@@ -58,8 +58,8 @@ function SelectRegion() {
         variant="contained"
         onClick={handleClick}
         style={{
-          width: "150px",
-          height: "30px",
+          width: "11vw",
+          height: "4.5vh",
           textTransform: "unset",
           border: "1px solid #FFB600",
           boxSizing: " border-box",

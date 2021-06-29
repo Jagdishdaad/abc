@@ -5,7 +5,7 @@ import ContactCard from "../../Components/ContactCard/ContactCard";
 import VendorService from "./VendorService";
 import VendorServiceCard from "./VendorServiceCard";
 
-function VendorDetail() {
+function VendorDetail({ setIndex }) {
   return (
     <div
       style={{
@@ -131,7 +131,10 @@ function VendorDetail() {
           padding: "20px",
         }}
       >
-        <Close style={{ fill: "#FFFFFF", marginLeft: "95%" }} />
+        <Close
+          style={{ fill: "#FFFFFF", marginLeft: "95%", cursor: "pointer" }}
+          onClick={() => setIndex(7)}
+        />
         <div
           style={{
             display: "flex",

@@ -32,15 +32,15 @@ function Vendor({ setIndex }) {
       style={{
         display: "flex",
         flexDirection: "column",
-        marginLeft: "7%",
-        marginTop: "5%",
+        marginTop: "10vh",
+        width: "100%",
+        alignItems: "center",
       }}
     >
       <div
         style={{
-          width: "1105px",
+          width: "70vw",
           display: "flex",
-
           justifyContent: "space-between",
         }}
       >
@@ -80,25 +80,26 @@ function Vendor({ setIndex }) {
       </div>
       <Divider
         style={{
-          width: "1105px",
-          height: "0px",
+          width: "70vw",
           marginTop: "1%",
           border: "2px solid #2D2D2D",
         }}
       />
-      <VendorTable />
+      <VendorTable setIndex={setIndex} />
       <div
         style={{
           display: "flex",
           flexDirection: "column",
+          width: "100%",
+          marginTop: "10vh",
+          alignItems: "center",
         }}
       >
         <div
           style={{
             display: "flex",
             justifyContent: "space-between",
-            width: "1105px",
-            marginTop: "5%",
+            width: "70vw",
           }}
         >
           <Typography
@@ -150,23 +151,25 @@ function Vendor({ setIndex }) {
             </ToggleButton>
           </ToggleButtonGroup>
         </div>
-        <Typography
-          style={{
-            width: "603px",
-            height: "16px",
-            fontFamily: "Open Sans",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "12px",
-            lineHeight: "16px",
-            color: "#9FA2B4",
-            letterSpacing: "0.1px",
-          }}
-        >
-          as of 25 May 2021,9:41 PM
-        </Typography>
+        <div>
+          <Typography
+            style={{
+              width: "603px",
+              height: "16px",
+              fontFamily: "Open Sans",
+              fontStyle: "normal",
+              fontWeight: 600,
+              fontSize: "12px",
+              lineHeight: "16px",
+              color: "#9FA2B4",
+              letterSpacing: "0.1px",
+            }}
+          >
+            as of 25 May 2021,9:41 PM
+          </Typography>
 
-        <VendorsChart />
+          <VendorsChart />
+        </div>
 
         <Support />
       </div>

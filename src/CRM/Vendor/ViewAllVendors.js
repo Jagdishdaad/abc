@@ -8,14 +8,11 @@ import VendorTable from "./VendorTable";
 
 function ViewAllVendors({ setIndex }) {
   return (
-    <div>
+    <div style={{ display: "flex", flexDirection: "column" }}>
       <div
         style={{
-          position: "absolute",
           width: "1105px",
           display: "flex",
-          left: "295px",
-          top: "141.5px",
           justifyContent: "space-between",
         }}
       >

@@ -6,14 +6,17 @@ import SelectRegion from "../Components/SelectRegion";
 
 function ViewAllCustomers() {
   return (
-    <div>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "space-bet",
+      }}
+    >
       <div
         style={{
-          position: "absolute",
-          width: "1105px",
+          width: "100%",
           display: "flex",
-          left: "295px",
-          top: "141.5px",
           justifyContent: "space-between",
         }}
       >
@@ -27,8 +30,6 @@ function ViewAllCustomers() {
           />
           <Typography
             style={{
-              width: "126px",
-              height: "33px",
               fontFamily: "Open Sans",
               fontStyle: "normal",
               fontWeight: 600,
@@ -42,8 +43,8 @@ function ViewAllCustomers() {
           </Typography>
           <Input
             style={{
-              width: "142px",
-              height: "30px",
+              width: "12vw",
+              height: "4.5vh",
               color: "#FFB600",
               border: "1px solid #FFB600",
               boxSizing: "border-box",
@@ -61,12 +62,8 @@ function ViewAllCustomers() {
       </div>
       <Divider
         style={{
-          position: "absolute",
-          width: "1105px",
+          width: "100%",
           height: "0px",
-          left: "295px",
-          top: "185px",
-
           border: "2px solid #2D2D2D",
         }}
       />

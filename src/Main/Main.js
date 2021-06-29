@@ -17,9 +17,11 @@ import Dashboard from "../Dashboard/Dashboard";
 import Advertisment from "../Advertisment/Advertisment";
 import Customer from "../CRM/Customer/Customer";
 import ViewAllVendors from "../CRM/Vendor/ViewAllVendors";
+import VendorDetail from "../CRM/Vendor/VendorDetail/VendorDetail";
+import CustomerDetail from "../CRM/Customer/CustomerDetail/CustomerDetail";
+import ViewAllCustomers from "../CRM/Customer/ViewAllCustomers";
 
-function Main() {
-  const [index, setIndex] = useState(0);
+function Main({ index, setIndex }) {
   const items = [
     <SidebarItem>
       <Logo />
@@ -39,7 +41,11 @@ function Main() {
           expandIcon={<ExpandMoreIcon color="black" />}
           aria-controls="panel1a-content"
           id="panel1a-header"
-          className={index === 3 ? "NavItemActive" : "NavItemPassive"}
+          className={
+            index === 3 || index === 7 || index === 8
+              ? "NavItemActiveCRM"
+              : "NavItemPassive"
+          }
           onClick={() => setIndex(3)}
         >
           CRM
@@ -72,8 +78,12 @@ function Main() {
       {index === 5 ? <Advertisment /> : ""}
       {index === 1 ? <Product /> : ""}
       {index === 2 ? <Orders /> : ""}
+      {index === 3 ? setIndex(7) : ""}
       {index === 7 ? <Vendor setIndex={setIndex} /> : ""}
-      {index === 8 ? <Customer /> : ""}
+      {index === 8 ? <Customer setIndex={setIndex} /> : ""}
+
+      {index === 81 ? <ViewAllCustomers setIndex={setIndex} /> : ""}
+
       {index === 71 ? <ViewAllVendors setIndex={setIndex} /> : ""}
     </Sidebar>
   );
