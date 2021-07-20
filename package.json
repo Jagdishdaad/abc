@@ -2,7 +2,8 @@
   "name": "admin_portal_product",
   "version": "0.1.0",
   "engines": {
-    "node": "14.16.0"
+    "node": "14.16.0",
+    "npm":"7.8.0",
   },
   "private": true,
   "dependencies": {
