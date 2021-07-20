@@ -1,99 +1,107 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
+import React, { useState } from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import InputBase from "@material-ui/core/InputBase";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { InputLabel } from "@material-ui/core";
 
-import ListItemText from "@material-ui/core/ListItemText";
-import { ArrowDropDown } from "@material-ui/icons";
-
-const StyledMenu = withStyles({
-  paper: {
-    backgroundColor: "#2D2D2D",
-    border: "1px solid #d3d4d5",
-    color: "#FFFFFF",
-  },
-})((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "center",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "center",
-    }}
-    {...props}
-  />
-));
-
-const StyledMenuItem = withStyles((theme) => ({
+const BootstrapInput = withStyles((theme) => ({
   root: {
-    "&:focus": {
-      backgroundColor: theme.palette.primary.main,
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
+    borderRadius: "0.3vw !important",
+    border: "1px solid #FFB600",
+    backgroundColor: "Transperant",
+    "label + &": {
+      marginTop: theme.spacing(1),
     },
   },
-}))(MenuItem);
+
+  input: {
+    marginRight: theme.spacing(2),
+    minWidth: "6vw",
+    borderRadius: "0.3vw !important",
+    position: "relative",
+    backgroundColor: "Transperant",
+    padding: "0.5vw 0.5vw 0.5vw 1vw",
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "1vw",
+    color: "#FFB600",
+  },
+}))(InputBase);
+
+const useStyles = makeStyles((theme) => ({
+  menu: { backgroundColor: "#2D2D2D", minWidth: "6vw" },
+
+  menuItems: {
+    "&:hover ": {
+      color: " #ffb600 !important",
+    },
+    "&:focus": {
+      color: " #FFFFFF ",
+    },
+    "&.MuiListItem-root.Mui-selected": {
+      backgroundColor: "#ffb600 !important",
+      color: " black !important",
+    },
+
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "1vw",
+    color: "#FFFFFF",
+    backgroundColor: "#2D2D2D !important",
+  },
+  inputlabel1: {
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "0.5vw",
+    color: "#FFB600 !important",
+  },
+  inputlabel2: {
+    color: "#121417 !important",
+  },
+
+  icon: {
+    fill: "#ffb600",
+  },
+}));
+
+const filters = ["Cement", "Bricks", "Agents", "Crane"];
 
 function SelectProduct() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const classes = useStyles();
+  const [filter, setFilter] = useState(-1);
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   return (
-    <div>
-      <Button
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        variant="contained"
-        onClick={handleClick}
-        style={{
-          width: "160px",
-          height: "30px",
-          textTransform: "unset",
-          border: "1px solid #FFB600",
-          boxSizing: " border-box",
-          borderRadius: "4px",
-          color: "#FFB600",
-          fontSize: "12px",
-          lineHeight: "16px",
-          backgroundColor: "transparent",
-        }}
+    <FormControl variant="outlined" InputProps={{ disableOutline: true }}>
+      <InputLabel
+        className={filter === -1 ? classes.inputlabel1 : classes.inputlabel2}
       >
-        Select a Product <ArrowDropDown style={{ fill: "#FFB600" }} />
-      </Button>
-      <StyledMenu
-        id="customized-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        style={{ color: "grey" }}
+        Select a Product
+      </InputLabel>
+      <Select
+        input={<BootstrapInput />}
+        MenuProps={{ classes: { paper: classes.menu } }}
+        inputProps={{ classes: { icon: classes.icon } }}
+        style={{ color: "#ffb600" }}
       >
-        <StyledMenuItem>
-          <ListItemText primary="Cement" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Bricks" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Agents" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Crane" />
-        </StyledMenuItem>
-      </StyledMenu>
-    </div>
+        {filters?.map((filter, index) => (
+          <MenuItem
+            className={classes.menuItems}
+            onClick={() => setFilter(index)}
+            value={index}
+          >
+            {filter}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 

@@ -1,18 +1,14 @@
-import React from 'react'
-import AddForm from './AddForm/AddForm.js'
-import BackButton from './BackButton/BackButton.js'
+import React from "react";
+import AddForm from "./AddForm/AddForm.js";
+import BackButton from "./BackButton/BackButton.js";
 
-function AddingAdd() {
-    return (
-        <div>
-            <div>
-                <BackButton/>
-            </div>
-            <div>
-                <AddForm/>
-            </div>
-        </div>
-    )
+function AddingAdd({ setIndex }) {
+  return (
+    <div style={{ display: "flex", flexDirection: "column" }}>
+      <BackButton setIndex={setIndex} />
+      <AddForm />
+    </div>
+  );
 }
 
-export default AddingAdd
+export default AddingAdd;

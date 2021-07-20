@@ -6,13 +6,15 @@
 }
 .toprightdiv {
   display: flex;
+  align-items: center;
+  margin-top: 1%;
+  margin-right: 2%;
 }
 .searchbox {
   background-color: #2d2d2d;
-  width: 80%;
+  width: 70%;
   border-radius: 5px;
-  padding: 0.5%;
-  padding-left: 1%;
+  padding: 0.9%;
   color: white;
-  margin-left: 12%;
+  margin-left: 2%;
 }

@@ -1,5 +1,4 @@
 import { Input, InputAdornment, Typography } from "@material-ui/core";
-import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
 import OrderChartBox from "./OrderChartBox/OrderChartBox";
 import "./Orders.css";
@@ -7,33 +6,19 @@ import OrdersDrop from "./OrdersDrop/OrdersDrop";
 import OrdersTable from "./OrdersTable/OrdersTable";
 import TotalOrders from "./TotalOrders/TotalOrders";
 import { Search } from "@material-ui/icons";
+import ButtonGroup from "../ButtonGroup";
 
 function Orders() {
   const [istoday, setistoday] = useState(true);
   const [ismonth, setismonth] = useState(false);
   const [isyear, setisyear] = useState(false);
 
-  const todayClicked = () => {
-    setistoday(true);
-    setismonth(false);
-    setisyear(false);
-  };
-  const monthClicked = () => {
-    setistoday(false);
-    setismonth(true);
-    setisyear(false);
-  };
-  const yearClicked = () => {
-    setistoday(false);
-    setismonth(false);
-    setisyear(true);
-  };
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        marginTop: "5vh",
+        margin: "3%",
       }}
     >
       <div
@@ -41,7 +26,6 @@ function Orders() {
           display: "flex",
           width: "100%",
           justifyContent: "space-between",
-          justifyContent: "space-around",
         }}
       >
         <div
@@ -57,10 +41,10 @@ function Orders() {
               fontFamily: " Open Sans",
               fontStyle: "normal",
               fontWeight: "600",
-              fontSize: "24px",
-              lineHeight: "33px",
-              marginBottom: "5vh",
-              marginLeft: "2vw",
+              fontSize: "2vw",
+              lineHeight: "2.5vw",
+              marginBottom: "4%",
+              marginLeft: "2%",
             }}
           >
             Orders
@@ -72,41 +56,18 @@ function Orders() {
           style={{
             display: "flex",
             flexDirection: "column",
-            marginTop: "2vh",
+            marginTop: "2%",
           }}
         >
-          <ToggleButtonGroup exclusive className="ordersBtns1 ">
-            <ToggleButton
-              onClick={todayClicked}
-              style={{
-                backgroundColor: istoday ? "#ffb600" : "#121417",
-                color: istoday ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Today
-            </ToggleButton>
-            <ToggleButton
-              onClick={monthClicked}
-              style={{
-                backgroundColor: ismonth ? "#ffb600" : "#121417",
-                color: ismonth ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Month
-            </ToggleButton>
-            <ToggleButton
-              onClick={yearClicked}
-              style={{
-                backgroundColor: isyear ? "#ffb600" : "#121417",
-                color: isyear ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Year
-            </ToggleButton>
-          </ToggleButtonGroup>
+          <ButtonGroup
+            setistoday={setistoday}
+            setismonth={setismonth}
+            setisyear={setisyear}
+            isyear={isyear}
+            istoday={istoday}
+            ismonth={ismonth}
+          />
+
           <TotalOrders />
         </div>
       </div>
@@ -114,47 +75,46 @@ function Orders() {
         style={{
           display: "flex",
           width: "100%",
-
+          marginTop: "5%",
           flexDirection: "column",
         }}
       >
         <div
           style={{
             display: "flex",
-            width: "100%",
+            width: "101%",
             justifyContent: "space-between",
-            justifyContent: "space-around",
           }}
         >
           <Typography
             style={{
-              width: "400px",
-              height: "33px",
               fontFamily: "Open Sans",
               fontStyle: "normal",
               fontWeight: "bold",
-              fontSize: "24px",
-              lineHeight: "33px",
+              fontSize: "2vw",
+              lineHeight: "2.5vw",
               letterSpacing: "0.4px",
               color: "#FFFFFF",
+              marginLeft: "1.5%",
             }}
           >
-            Order Details
+            Orders Details
           </Typography>
           <div style={{ display: "flex" }}>
             <Input
               style={{
-                width: "142px",
-                height: "30px",
+                width: "12vw",
+                height: "2.2vw",
                 color: "#FFB600",
                 border: "1px solid #FFB600",
                 boxSizing: "border-box",
-                borderRadius: "4px",
+                borderRadius: "0.3vw",
                 marginRight: "2%",
+                marginTop: "2.3%",
               }}
               endAdornment={
                 <InputAdornment>
-                  <Search />
+                  <Search style={{ width: "1.6vw", height: "1.6vw" }} />
                 </InputAdornment>
               }
             />

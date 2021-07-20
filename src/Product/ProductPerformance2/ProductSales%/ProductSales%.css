@@ -1,40 +1,44 @@
 .productSalesper {
   display: flex;
   flex-direction: column;
-  position: relative;
-  padding: 2vh !important;
+  padding: 0.8vw !important;
   width: 25vw;
   height: 21vw;
   background: #2d2d2d;
-
-  border: 0.05vh solid #ffffff;
+  border: 0.05vw solid #ffffff;
   box-sizing: border-box;
-  border-radius: 2vh;
+  border-radius: 1vw;
 }
 .productSaleperLine1 {
-  position: relative;
   font-family: Open Sans !important;
   font-style: normal !important;
   font-weight: bold !important ;
-  font-size: 16px !important;
-  line-height: 24px !important;
+  font-size: 1.2vw !important;
+  line-height: 1.4vw !important;
   display: flex;
   align-items: center;
   letter-spacing: 0.44px !important;
   color: #ffffff;
 }
+.productSaleperLine15 {
+  font-family: Open Sans !important;
+  font-style: normal !important;
+  font-weight: bold !important ;
+  font-size: 1vw !important;
+  line-height: 1.4vw !important;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.44px !important;
+  color: #ffb600;
+}
 .productSaleperLine2 {
-  position: relative;
-
   font-family: Open Sans;
   font-style: normal !important;
   font-weight: normal !important;
-  font-size: 14px;
-  line-height: 20px;
-
+  font-size: 1vw !important;
+  line-height: 1.2vw !important;
   display: flex;
   align-items: center;
-  letter-spacing: 0.25px;
-
+  letter-spacing: 0.25px !important;
   color: #ffffff;
 }

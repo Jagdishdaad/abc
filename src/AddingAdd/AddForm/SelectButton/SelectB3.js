@@ -1,59 +1,107 @@
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import InputLabel from '@material-ui/core/InputLabel';
-import FormHelperText from '@material-ui/core/FormHelperText';
-import FormControl from '@material-ui/core/FormControl';
-import Select from '@material-ui/core/Select';
-import NativeSelect from '@material-ui/core/NativeSelect';
+import React from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import InputBase from "@material-ui/core/InputBase";
+import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { InputLabel } from "@material-ui/core";
 
+const BootstrapInput = withStyles((theme) => ({
+  root: {
+    width: "25vw !important",
+    borderRadius: "0.3vw !important",
+    backgroundColor: "#2D2D2D ",
+    "label + &": {
+      marginTop: theme.spacing(1),
+    },
+  },
 
+  input: {
+    marginRight: theme.spacing(2),
+    width: "25vw !important",
+    borderRadius: "0.3vw !important",
+    position: "relative",
+    backgroundColor: "#2D2D2D",
+    padding: "1vw 0vw 1vw 1.5vw",
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "1vw",
+    color: "#FFFFFF",
+  },
+}))(InputBase);
 
 const useStyles = makeStyles((theme) => ({
-    formControl: {
-      margin: theme.spacing(1),
-      minWidth: 120,
+  menu: { backgroundColor: "#2D2D2D", width: "25vw !important" },
+
+  menuItems: {
+    "&:hover ": {
+      color: " #ffb600 !important",
     },
-    selectEmpty: {
-      marginTop: theme.spacing(2),
+    "&:focus": {
+      color: " #FFFFFF ",
     },
-  }));
-  
-  export default function SelectB3() {
-    const classes = useStyles();
-    const [state, setState ] = React.useState({
-      age: '',
-      name: 'hai',
-    });
-  
-    const handleChange = (event) => {
-      const name = event.target.name;
-      setState({
-        ...state,
-        [name]: event.target.value,
-      });
-    };
+    "&.MuiListItem-root.Mui-selected": {
+      backgroundColor: "#ffb600 !important",
+      color: " black !important",
+    },
 
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "1vw",
+    color: "#FFFFFF",
+    backgroundColor: "#2D2D2D !important",
+  },
+  inputlabel1: {
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "1vw",
+    lineHeight: "0.5vw",
+    color: "#FFFFFF !important",
+    marginTop: "2%",
+  },
+  inputlabel2: {
+    fontSize: "0",
+  },
 
-    return (
-        <div>
-       <FormControl variant="outlined" className={classes.formControl} style={{backgroundColor:'#2D2D2D',width:'450px',height:'60px',color:'white'}}>
-        <InputLabel htmlFor="outlined-age-native-simple" style={{color:'white', width:378,height:48 }}>Select Page</InputLabel>
-        <Select
-          native
-          value={state.age}
-          onChange={handleChange}
-          label="Age"
-          inputProps={{
-            name: 'age',
-            id: 'outlined-age-native-simple',
-          }}
-        > 
-              <option aria-label="None" value="" style={{backgroundColor:'#2D2D2D'}}/>
-              <option value={10} style={{backgroundColor:'#2D2D2D', color:'white'}}>Home Page</option>
-              <option value={20} style={{backgroundColor:'#2D2D2D', color:'white'}}>Services Page</option> 
+  icon: {
+    fill: "#FFFFFF",
+  },
+}));
+const page = ["Home Page", "Service", "Leads", "Unit Convertor"];
 
-        </Select>
-      </FormControl>
-      </div>
+export default function SelectB3({ formData, setFormData }) {
+  const classes = useStyles();
+
+  const handleChange = (event) => {
+    setFormData({ ...formData, page: page[event.target.value] });
+  };
+
+  return (
+    <FormControl variant="outlined" InputProps={{ disableOutline: true }}>
+      <InputLabel
+        className={
+          formData?.page === "" ? classes.inputlabel1 : classes.inputlabel2
+        }
+      >
+        Select Page
+      </InputLabel>
+      <Select
+        input={<BootstrapInput />}
+        MenuProps={{ classes: { paper: classes.menu } }}
+        inputProps={{ classes: { icon: classes.icon } }}
+        onChange={handleChange}
+      >
+        {page?.map((d, index) => (
+          <MenuItem className={classes.menuItems} value={index}>
+            {d}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }

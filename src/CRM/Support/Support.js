@@ -4,14 +4,16 @@ import feedback from "./SupportIcons/feedback.svg";
 import megaphone from "./SupportIcons/megaphone.svg";
 import Subtract from "./SupportIcons/Subtract.svg";
 
-function Support() {
+function Support({ index, setIndex }) {
   return (
     <div
+      onClick={() => (index === 7 ? setIndex(73) : setIndex(83))}
       style={{
         display: "flex",
+        cursor: "pointer",
         flexDirection: "column",
         justifyContent: "space-between",
-        marginTop: "10vh",
+        margin: "5% 3% 10% 5%",
       }}
     >
       <Typography
@@ -31,8 +33,7 @@ function Support() {
       <div
         style={{
           display: "flex",
-          marginTop: "20% !important",
-
+          marginTop: "3%",
           width: "70vw",
           justifyContent: "space-between",
         }}
@@ -42,7 +43,6 @@ function Support() {
             width: "276px",
             height: "310px",
             backgroundColor: "#2D2D2D",
-
             border: "0.5px solid #FFFFFF",
             boxSizing: "border-box",
             borderRadius: "10px",

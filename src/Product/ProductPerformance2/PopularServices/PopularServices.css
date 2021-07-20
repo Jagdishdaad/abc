@@ -4,40 +4,32 @@
   position: relative;
   width: 25vw;
   height: 17vw;
-  border-radius: 2vh;
-
+  border-radius: 1vw;
   background: #2d2d2d;
-  padding: 2vh !important;
-  border: 0.05vh solid #ffffff;
+  padding: 1vw !important;
+  border: 0.05vw solid #ffffff;
   box-sizing: border-box;
-  border-radius: 2vh;
+  border-radius: 1vw;
 }
 .popularline1 {
   font-family: Open Sans !important;
   font-style: normal;
   font-weight: 600 !important;
-  font-size: 16px !important;
-  line-height: 24px !important;
+  font-size: 1.3vw !important;
+  line-height: 1.4vw !important;
   display: flex;
-
+  width: 25vw !important;
   letter-spacing: 0.44px !important;
-
-  /* White */
-
   color: #ffffff;
 }
 .popularline2 {
   font-family: Open Sans !important ;
   font-style: normal;
   font-weight: 300 !important;
-  font-size: 13px !important;
-  line-height: 20px !important;
+  font-size: 0.8vw !important;
+  line-height: 1.8vw !important;
   display: flex;
-  margin-top: 1% !important;
-
+  margin-top: -0.6% !important;
   letter-spacing: 0.25px !important;
-
-  /* White */
-
   color: #ffffff;
 }

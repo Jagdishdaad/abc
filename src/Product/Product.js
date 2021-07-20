@@ -1,6 +1,4 @@
 import React from "react";
-
-import "./Product.css";
 import ProductList from "./ProductList/ProductList.js";
 import ProductPerformance2 from "./ProductPerformance2/ProductPerformance2.js";
 import RegionalSales from "./RegionalSales/RegionalSales.js";

@@ -1,38 +1,26 @@
 import { Button, Divider, Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
+import ButtonGroup from "../../ButtonGroup";
+import CRMFilter from "../Components/CRMFilter";
+import CRMService from "../Components/CRMService";
 import Support from "../Support/Support";
 import "./Vendor.css";
 
 import VendorsChart from "./VendorChart";
 import VendorTable from "./VendorTable";
 
-function Vendor({ setIndex }) {
+function Vendor({ index, setIndex, setId }) {
   const [istoday, setistoday] = useState(true);
   const [ismonth, setismonth] = useState(false);
   const [isyear, setisyear] = useState(false);
 
-  const todayClicked = () => {
-    setistoday(true);
-    setismonth(false);
-    setisyear(false);
-  };
-  const monthClicked = () => {
-    setistoday(false);
-    setismonth(true);
-    setisyear(false);
-  };
-  const yearClicked = () => {
-    setistoday(false);
-    setismonth(false);
-    setisyear(true);
-  };
   return (
     <div
       style={{
         display: "flex",
         flexDirection: "column",
-        marginTop: "10vh",
+        marginTop: "5vw",
         width: "100%",
         alignItems: "center",
       }}
@@ -44,20 +32,22 @@ function Vendor({ setIndex }) {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          style={{
-            width: "126px",
-            height: "33px",
-            fontFamily: "Open Sans",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "24px",
-            lineHeight: "33px",
-            color: "#F5F5F5",
-          }}
-        >
-          Vendor
-        </Typography>
+        <div style={{ display: "flex", width: "20vw" }}>
+          <Typography
+            style={{
+              fontFamily: "Open Sans",
+              fontStyle: "normal",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "33px",
+              color: "#F5F5F5",
+              marginRight: "10%",
+            }}
+          >
+            Vendor
+          </Typography>
+          <CRMFilter />
+        </div>
         <Button
           style={{
             width: "140px",
@@ -82,10 +72,11 @@ function Vendor({ setIndex }) {
         style={{
           width: "70vw",
           marginTop: "1%",
-          border: "2px solid #2D2D2D",
+          height: "5%",
+          border: "1px solid #2D2D2D",
         }}
       />
-      <VendorTable setIndex={setIndex} />
+      <VendorTable setIndex={setIndex} setId={setId} />
       <div
         style={{
           display: "flex",
@@ -117,39 +108,24 @@ function Vendor({ setIndex }) {
           >
             Services
           </Typography>
-
-          <ToggleButtonGroup exclusive className="VendorBtnGrp">
-            <ToggleButton
-              onClick={todayClicked}
-              style={{
-                backgroundColor: istoday ? "#ffb600" : "#121417",
-                color: istoday ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Today
-            </ToggleButton>
-            <ToggleButton
-              onClick={monthClicked}
-              style={{
-                backgroundColor: ismonth ? "#ffb600" : "#121417",
-                color: ismonth ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Month
-            </ToggleButton>
-            <ToggleButton
-              onClick={yearClicked}
-              style={{
-                backgroundColor: isyear ? "#ffb600" : "#121417",
-                color: isyear ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Year
-            </ToggleButton>
-          </ToggleButtonGroup>
+          <div
+            style={{
+              display: "flex",
+              width: "32vw",
+              justifyContent: "space-between",
+              alignItems: "center",
+            }}
+          >
+            <CRMService />
+            <ButtonGroup
+              setistoday={setistoday}
+              setismonth={setismonth}
+              setisyear={setisyear}
+              isyear={isyear}
+              istoday={istoday}
+              ismonth={ismonth}
+            />
+          </div>
         </div>
         <div>
           <Typography
@@ -171,7 +147,7 @@ function Vendor({ setIndex }) {
           <VendorsChart />
         </div>
 
-        <Support />
+        <Support index={index} setIndex={setIndex} />
       </div>
     </div>
   );

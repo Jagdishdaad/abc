@@ -3,7 +3,7 @@ import { Bar } from "react-chartjs-2";
 
 function Graph1(props) {
   return (
-    <div>
+    <div style={{ marginTop: "6%" }}>
       <Bar data={props.data} options={props.options} />
     </div>
   );

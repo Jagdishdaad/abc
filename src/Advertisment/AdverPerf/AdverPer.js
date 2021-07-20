@@ -1,23 +1,48 @@
-import React from 'react'
-import NativeSelects from './AdPerChart/AdPerButton.js';
-import AdPerChart from './AdPerChart/AdPerChart.js';
+import React from "react";
+
+import AdPerChart from "./AdPerChart/AdPerChart.js";
+import { Typography } from "@material-ui/core";
+import AdverDrop from "./AdPerChart/AdverDrop/AdverDrop.js";
 
 function AdverPer() {
-    return (
-        <div className="AdverPer">
-            <div style={{display:'flex',flexDirection:'row', justifyContent:'space-between',marginLeft:'40px',marginRight:'7%'}}>
-             <div style={{fontSize:'30px', color:'white'}}>
-             Advertisment Performace
-             </div>
-                  <div style={{backgroundColor:'#FFB600', marginBottom:'1%',borderRadius:'10px'}}>
-                  <NativeSelects />
-                  </div> 
-          </div>
-          <div >
-            <AdPerChart />
-        </div>
-        </div>
-    )
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        margin: "3% 3% 5% 3%",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          width: "98%",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography
+          style={{
+            fontFamily: "Open Sans",
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "24px",
+            lineHeight: "33px",
+            letterSpacing: "0.4px",
+            color: "#FFFFFF",
+          }}
+        >
+          {" "}
+          Adevertisement Performance
+        </Typography>
+
+        <AdverDrop />
+      </div>
+      <div>
+        <AdPerChart />
+      </div>
+    </div>
+  );
 }
 
-export default AdverPer
+export default AdverPer;

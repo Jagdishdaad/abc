@@ -1,67 +1,26 @@
 import "./App.css";
 import { useState } from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import Customer from "./CRM/Customer/Customer";
 import CustomerDetail from "./CRM/Customer/CustomerDetail/CustomerDetail";
-import ViewAllCustomers from "./CRM/Customer/ViewAllCustomers";
-import Vendor from "./CRM/Vendor/Vendor";
 import VendorDetail from "./CRM/Vendor/VendorDetail/VendorDetail";
-import ViewAllVendors from "./CRM/Vendor/ViewAllVendors";
-import Orders from "./Orders/Orders";
-import Product from "./Product/Product";
 import UseWindowSize from "./utils/UseWindowSize";
 import Main from "./Main/Main";
 
 function App() {
   const window = UseWindowSize();
   const [index, setIndex] = useState(0);
+  const [id, setId] = useState(0);
 
   return (
-    <div
-      style={{
-        width: window.width,
-        height: window.height,
-        overflow: "hidden",
-      }}
-    >
-      {index}
+    <div style={{ display: "block", overflowX: "hidden" }}>
       {index === 72 || index === 82 ? (
         index === 72 ? (
           <VendorDetail setIndex={setIndex} />
         ) : (
-          <CustomerDetail setIndex={setIndex} />
+          <CustomerDetail setIndex={setIndex} val={id} />
         )
       ) : (
-        <Main setIndex={setIndex} index={index} />
+        <Main setIndex={setIndex} index={index} setId={setId} />
       )}
-      {/* <Router>
-        <Switch>
-          <Route path="/vendor">
-            <Vendor />
-          </Route>
-          <Route path="/vendordetail">
-            <VendorDetail />
-          </Route>
-          <Route path="/viewallvendors">
-            <ViewA  llVendors />
-          </Route>
-          <Route path="/customer">
-            <Customer />
-          </Route>
-          <Route path="/customerdetail">
-            <CustomerDetail />
-          </Route>
-          <Route path="/viewallcustomers">
-            <ViewAllCustomers />
-          </Route>
-          <Route path="/product">
-            <Product />
-          </Route>
-          <Route path="/">
-            <Orders />
-          </Route>
-        </Switch>
-      </Router> */}
     </div>
   );
 }

@@ -26,7 +26,7 @@ const data = {
     },
     {
       label: "Vendor",
-      backgroundColor: "yellow",
+      backgroundColor: "#FFB600",
 
       data: [1, 1.3, 2.7, 2, 6, 2, 2, 5.2, 4.7, 2.7, 7.2, 2],
     },
@@ -40,9 +40,17 @@ const options = {
     titleFontColor: "#F9F0F0",
   },
 
-  legend: {
-    display: true,
-    position: "right",
+  plugins: {
+    legend: {
+      display: true,
+      position: "bottom",
+      labels: {
+        boxHeight: 0.2,
+        boxWidth: 30,
+        color: "#FFFFFF",
+        padding: 15,
+      },
+    },
   },
   scales: {
     y: {

@@ -1,92 +1,106 @@
-import React from "react";
-import { withStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";
-import Menu from "@material-ui/core/Menu";
+import React, { useState } from "react";
+import { makeStyles, withStyles } from "@material-ui/core/styles";
+import InputBase from "@material-ui/core/InputBase";
 import MenuItem from "@material-ui/core/MenuItem";
+import FormControl from "@material-ui/core/FormControl";
+import Select from "@material-ui/core/Select";
+import { InputLabel } from "@material-ui/core";
 
-import ListItemText from "@material-ui/core/ListItemText";
-
-import "./ConMatDrop.css";
-
-const StyledMenu = withStyles({
-  paper: {
-    backgroundColor: "#2D2D2D",
-    border: "1px solid #d3d4d5",
-    color: "#FFFFFF",
-  },
-})((props) => (
-  <Menu
-    elevation={0}
-    getContentAnchorEl={null}
-    anchorOrigin={{
-      vertical: "bottom",
-      horizontal: "center",
-    }}
-    transformOrigin={{
-      vertical: "top",
-      horizontal: "center",
-    }}
-    {...props}
-  />
-));
-
-const StyledMenuItem = withStyles((theme) => ({
+const BootstrapInput = withStyles((theme) => ({
   root: {
-    "&:focus": {
-      backgroundColor: theme.palette.primary.main,
-      "& .MuiListItemIcon-root, & .MuiListItemText-primary": {
-        color: theme.palette.common.white,
-      },
+    borderRadius: "0.5vw !important",
+    backgroundColor: "#56CCF2",
+    "label + &": {
+      marginTop: theme.spacing(1.5),
     },
   },
-}))(MenuItem);
+
+  input: {
+    marginRight: theme.spacing(2),
+    minWidth: "8vw",
+    borderRadius: "0.5vw !important",
+    position: "relative",
+    backgroundColor: "#56CCF2",
+    padding: "1vw 1vw 1vw 1vw",
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "1.2vw",
+    lineHeight: "1.4vw",
+    color: "#08090C",
+  },
+}))(InputBase);
+
+const useStyles = makeStyles((theme) => ({
+  menu: { backgroundColor: "#2D2D2D", minWidth: "6vw" },
+
+  menuItems: {
+    "&:hover ": {
+      color: " #ffb600 !important",
+    },
+    "&:focus": {
+      color: " #FFFFFF ",
+    },
+    "&.MuiListItem-root.Mui-selected": {
+      backgroundColor: "#ffb600 !important",
+      color: " black !important",
+    },
+
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "0.9vw",
+    lineHeight: "1vw",
+    color: "#FFFFFF",
+    backgroundColor: "#2D2D2D !important",
+  },
+  inputlabel: {
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: "normal",
+    fontSize: "1.2vw",
+    lineHeight: "2vw",
+    color: "#121417 !important",
+  },
+
+  icon: {
+    fill: "#ffb600",
+  },
+}));
+const products = [
+  "Construction Material",
+  "Agents",
+  "Commercial Vehicles",
+  "Construction Machines",
+  "Construction Chemicals",
+];
 
 function ConMatDrop() {
-  const [anchorEl, setAnchorEl] = React.useState(null);
+  const [filter, setFilter] = useState(0);
+  const classes = useStyles();
 
-  const handleClick = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleClose = () => {
-    setAnchorEl(null);
-  };
   return (
-    <div>
-      <Button
-        id="dropdownbutton"
-        aria-controls="customized-menu"
-        aria-haspopup="true"
-        variant="contained"
-        onClick={handleClick}
+    <FormControl
+      variant="outlined"
+      className={classes.formControl}
+      InputProps={{ disableOutline: true }}
+    >
+      <InputLabel className={classes.inputlabel}>All Categories</InputLabel>
+      <Select
+        input={<BootstrapInput />}
+        MenuProps={{ classes: { paper: classes.menu } }}
       >
-        Open Menu
-      </Button>
-      <StyledMenu
-        id="customized-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-        style={{ color: "grey" }}
-      >
-        <StyledMenuItem>
-          <ListItemText primary="Construction Material" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Agents" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Construction Vehicles" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Construction Machines" />
-        </StyledMenuItem>
-        <StyledMenuItem>
-          <ListItemText primary="Construction Chemicals" />
-        </StyledMenuItem>
-      </StyledMenu>
-    </div>
+        {products?.map((product, index) => (
+          <MenuItem
+            className={classes.menuItems}
+            onClick={() => setFilter(index)}
+            value={index}
+          >
+            {product}
+          </MenuItem>
+        ))}
+      </Select>
+    </FormControl>
   );
 }
 

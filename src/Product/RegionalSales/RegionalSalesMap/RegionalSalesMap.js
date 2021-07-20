@@ -16,7 +16,7 @@ const PROJECTION_CONFIG = {
 const geographyStyle = {
   default: {
     outline: "none",
-    width: "1000px",
+    width: "10px",
   },
   hover: {
     fill: "#ccc",
@@ -60,29 +60,30 @@ const markers = [
 
 function RegionalSalesMap() {
   return (
-    <ComposableMap
-      projectionConfig={PROJECTION_CONFIG}
-      projection="geoMercator"
-      width={600}
-      height={190}
-      data-tip=""
-    >
-      <Geographies geography={INDIA_TOPO_JSON}>
-        {({ geographies }) =>
-          geographies.map((geo) => {
-            return (
-              <Geography
-                key={geo.rsmKey}
-                geography={geo}
-                fill="#2d2d2d"
-                stroke="black"
-                style={geographyStyle}
-              />
-            );
-          })
-        }
-      </Geographies>
-      {/* {markers.map(({ name, arcs, markerOffset }) => (
+    <div style={{ display: "flex", marginTop: "-10%" }}>
+      <ComposableMap
+        projectionConfig={PROJECTION_CONFIG}
+        projection="geoMercator"
+        width={600}
+        height={500}
+        data-tip=""
+      >
+        <Geographies geography={INDIA_TOPO_JSON}>
+          {({ geographies }) =>
+            geographies.map((geo) => {
+              return (
+                <Geography
+                  key={geo.rsmKey}
+                  geography={geo}
+                  fill="#2d2d2d"
+                  stroke="black"
+                  style={geographyStyle}
+                />
+              );
+            })
+          }
+        </Geographies>
+        {/* {markers.map(({ name, arcs, markerOffset }) => (
         <Marker key={name} arcs={arcs}>
           <g
             fill="none"
@@ -104,7 +105,8 @@ function RegionalSalesMap() {
           </text>
         </Marker>
       ))} */}
-    </ComposableMap>
+      </ComposableMap>
+    </div>
   );
 }
 

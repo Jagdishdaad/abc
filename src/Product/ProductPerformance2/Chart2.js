@@ -41,19 +41,16 @@ const data = {
     },
   ],
 };
-const legend = {
-  display: true,
-  position: "bottom",
-  labels: {
-    fontColor: "#323130",
-    fontSize: 14,
-  },
-};
 
 const options = {
   title: {
     display: true,
     text: "Chart Title",
+  },
+  plugins: {
+    legend: {
+      display: false,
+    },
   },
 
   scales: {
@@ -70,7 +67,7 @@ const options = {
 function Chart2() {
   return (
     <div>
-      <Line data={data} legend={legend} options={options} />
+      <Line data={data} options={options} />
     </div>
   );
 }

@@ -1,45 +1,39 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import CRMTable from "../Components/CRMTable/CRMTable.js";
 import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
 
 const columns = [
-  { id: "vendor", label: "Vendor", align: "center" },
-  { id: "company", label: "Company", align: "center" },
-  { id: "location", label: "Location", align: "center" },
-  { id: "leads", label: "Leads", align: "center" },
-  { id: "noofservices", label: "No. Of Services", align: "center" },
+  { id: "customer_name", label: "Customer", align: "center" },
+  { id: "company_name", label: "Company", align: "center" },
+  { id: "Location", label: "Location", align: "center" },
+  { id: "Requests", label: "Requests", align: "center" },
+  { id: "Completed_Requests", label: "Completed Deals", align: "center" },
   { id: "actions", label: "Actions", align: "center" },
 ];
 
-function createData(vendor, company, location, leads, noofservices, actions) {
+function createData(
+  id,
+  Completed_Requests,
+  Location,
+  Requests,
+  company_name,
+  customer_name
+) {
   return {
-    vendor,
-    company,
-    location,
-    leads,
-    noofservices,
-    actions,
+    id,
+    Completed_Requests,
+    Location,
+    Requests,
+    company_name,
+    customer_name,
   };
 }
 
-const rows = [
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-  createData("XYZ", "XYZ", "Xyz Earth", "25 Leads", "10"),
-];
 const useStyles = makeStyles({
   root: {
-    width: "953px !important",
+    width: "70vw !important",
     marginTop: "2%",
-    height: "504px",
 
     background: "#121417 !important",
     boxSizing: "border-box",
@@ -65,12 +59,44 @@ const useStyles = makeStyles({
     width: "5px",
     borderLeft: "1px solid #F5F5F5",
     borderRight: "1px solid #F5F5F5",
+    borderBottom: "none",
   },
   row: { height: "40 !important", padding: "0px 0px 0px" },
   footer: { color: "#F5F5F5" },
 });
 
-function CustomerTable({ setIndex }) {
+function CustomerTable({ setIndex, setId }) {
+  const [rows, setrows] = useState([]);
+  let temp;
+  let temparr = [];
+
+  useEffect(() => {
+    const fetchCustomers = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:7000/user/customer_table"
+        );
+
+        temp = response?.data;
+        for (var i = 0; i < temp.data.length; i++) {
+          temparr.push(
+            createData(
+              temp.data[i].id,
+              temp.data[i].Completed_Requests,
+              temp.data[i].Location,
+              temp.data[i].Requests,
+              temp.data[i].company_name,
+              temp.data[i].customer_name
+            )
+          );
+        }
+        setrows(temparr);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchCustomers();
+  }, []);
   return (
     <div>
       <CRMTable
@@ -78,6 +104,7 @@ function CustomerTable({ setIndex }) {
         rows={rows}
         useStyles={useStyles}
         setIndex={setIndex}
+        setId={setId}
         value={82}
       />
     </div>

@@ -1,44 +1,74 @@
 import React from "react";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import "./RegionSalesData.css";
+import { makeStyles, Typography } from "@material-ui/core";
 
-function createData(name, sales, color) {
-  return { name, sales, color };
+function createData(name, sales, color, border, borderadius) {
+  return { name, sales, color, border, borderadius };
 }
 
 const rows = [
-  createData("Maharastra", 31000, "red"),
-  createData("Gujarat", 30000, "white"),
-  createData("Utter Pradesh", 29000, "green"),
-  createData("Andhra Pradesh", 31000, "blue"),
+  createData(
+    "Maharastra",
+    31000,
+    "#3CC13B",
+    "0.5px solid #2D2D2D",
+    "4px 4px 0px 0px"
+  ),
+  createData("Gujarat", 30000, "#FFB600"),
+  createData("Utter Pradesh", 29000, "#FFFFFF"),
+  createData(
+    "Andhra Pradesh",
+    31000,
+    "#EB5757",
+    "0.5px solid #2D2D2D",
+    "0px 0px 4px 4px"
+  ),
 ];
 
+const useStyles = makeStyles({
+  data: {
+    fontFamily: "Open Sans",
+    fontStyle: "normal",
+    fontWeight: 600,
+    fontSize: "16px",
+    lineHeight: "22px",
+    letterSpacing: "0.4px",
+    color: "#121417",
+  },
+});
+
 function RegionalSalesData() {
+  const classes = useStyles();
   return (
-    <div>
-      <TableContainer component={Paper} className="Tablestyle1">
-        <Table aria-label="simple table">
-          <TableBody>
-            {rows.map((row) => (
-              <TableRow
-                key={row.name}
-                style={{
-                  backgroundColor: row.color,
-                  borderBottom: "none !important",
-                }}
-              >
-                <TableCell scope="row">{row.name}</TableCell>
-                <TableCell align="right">{row.sales}</TableCell>
-              </TableRow>
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "24vw",
+        height: "16vw",
+        border: "0.5px solid #2D2D2D",
+        border: "400px",
+        boxSizing: "border-box",
+        marginLeft: "-20%",
+      }}
+    >
+      {rows.map((e) => (
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            backgroundColor: `${e.color}`,
+            justifyContent: "space-between",
+            alignItems: "center",
+            padding: "0 1vw 0 1vw",
+            height: "16vh",
+            border: `${e.border}`,
+            borderRadius: `${e.borderadius}`,
+          }}
+        >
+          <Typography className={classes.data}>{e.name}</Typography>
+          <Typography className={classes.data}>{e.sales}</Typography>
+        </div>
+      ))}
     </div>
   );
 }

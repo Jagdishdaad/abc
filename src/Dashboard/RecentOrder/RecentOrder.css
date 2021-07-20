@@ -1,6 +1,6 @@
-.RecentOrder{
-    display:flex;
-    flex-direction: column;
-    margin: 1%;
-    color: white;
+.RecentOrder {
+  display: flex;
+  width: 101%;
+  flex-direction: column;
+  margin-top: 5% !important;
 }

@@ -1,32 +1,20 @@
 import { Button, Divider, Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
+import ButtonGroup from "../../ButtonGroup";
+import CRMFilter from "../Components/CRMFilter";
+import CRMService from "../Components/CRMService";
 import Support from "../Support/Support";
 import "./Customer.css";
 
 import CustomersChart from "./CustomersChart";
 import CustomerTable from "./CustomerTable";
 
-function Customer({ setIndex }) {
+function Customer({ index, setIndex, setId }) {
   const [istoday, setistoday] = useState(true);
   const [ismonth, setismonth] = useState(false);
   const [isyear, setisyear] = useState(false);
 
-  const todayClicked = () => {
-    setistoday(true);
-    setismonth(false);
-    setisyear(false);
-  };
-  const monthClicked = () => {
-    setistoday(false);
-    setismonth(true);
-    setisyear(false);
-  };
-  const yearClicked = () => {
-    setistoday(false);
-    setismonth(false);
-    setisyear(true);
-  };
   return (
     <div
       style={{
@@ -44,20 +32,23 @@ function Customer({ setIndex }) {
           justifyContent: "space-between",
         }}
       >
-        <Typography
-          style={{
-            width: "126px",
-            height: "33px",
-            fontFamily: "Open Sans",
-            fontStyle: "normal",
-            fontWeight: 600,
-            fontSize: "24px",
-            lineHeight: "33px",
-            color: "#F5F5F5",
-          }}
-        >
-          Customer
-        </Typography>
+        <div style={{ display: "flex", width: "20vw" }}>
+          <Typography
+            style={{
+              width: "126px",
+              height: "33px",
+              fontFamily: "Open Sans",
+              fontStyle: "normal",
+              fontWeight: 600,
+              fontSize: "24px",
+              lineHeight: "33px",
+              color: "#F5F5F5",
+            }}
+          >
+            Customer
+          </Typography>
+          <CRMFilter />
+        </div>
         <Button
           style={{
             width: "140px",
@@ -82,10 +73,11 @@ function Customer({ setIndex }) {
         style={{
           width: "70vw",
           marginTop: "1%",
-          border: "2px solid #2D2D2D",
+          height: "5%",
+          border: "1px solid #2D2D2D",
         }}
       />
-      <CustomerTable setIndex={setIndex} />
+      <CustomerTable setIndex={setIndex} setId={setId} />
       <div
         style={{
           display: "flex",
@@ -117,39 +109,23 @@ function Customer({ setIndex }) {
           >
             Services
           </Typography>
-
-          <ToggleButtonGroup exclusive className="CustomerBtnGrp">
-            <ToggleButton
-              onClick={todayClicked}
-              style={{
-                backgroundColor: istoday ? "#ffb600" : "#121417",
-                color: istoday ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Today
-            </ToggleButton>
-            <ToggleButton
-              onClick={monthClicked}
-              style={{
-                backgroundColor: ismonth ? "#ffb600" : "#121417",
-                color: ismonth ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Month
-            </ToggleButton>
-            <ToggleButton
-              onClick={yearClicked}
-              style={{
-                backgroundColor: isyear ? "#ffb600" : "#121417",
-                color: isyear ? "#121417" : "#ffb600",
-                textTransform: "unset",
-              }}
-            >
-              Year
-            </ToggleButton>
-          </ToggleButtonGroup>
+          <div
+            style={{
+              display: "flex",
+              width: "33vw",
+              justifyContent: "space-between",
+            }}
+          >
+            <CRMService />
+            <ButtonGroup
+              setistoday={setistoday}
+              setismonth={setismonth}
+              setisyear={setisyear}
+              isyear={isyear}
+              istoday={istoday}
+              ismonth={ismonth}
+            />
+          </div>
         </div>
         <div>
           <Typography
@@ -170,8 +146,8 @@ function Customer({ setIndex }) {
 
           <CustomersChart />
         </div>
-        <div style={{ display: "flex", marginTop: "16vh" }}>
-          <Support />
+        <div style={{ display: "flex", marginTop: "16vh", marginLeft: "-7%" }}>
+          <Support index={index} setIndex={setIndex} />
         </div>
       </div>
     </div>

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -8,6 +8,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
+import axios from "axios";
 const columns = [
   { id: "product", label: "Product", align: "center" },
   { id: "requestby", label: "Request By", align: "center" },
@@ -73,112 +74,13 @@ const rows = [
     "Rs 20000",
     "Pending"
   ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
-  createData(
-    "Cement",
-    "XYZ",
-    "XYZ",
-    "Xyz Earth",
-    "DD/MM/YY",
-    "Rs 20000",
-    "Pending"
-  ),
 ];
 
 const useStyles = makeStyles({
   root: {
-    width: "100% !important",
-    padding: "5vw",
-    height: "50vw",
+    width: "102% !important",
+    padding: "5% 2.5% 0 1%",
+    maxHeight: "50vw",
     background: "#121417 !important",
     boxSizing: "border-box",
   },
@@ -209,6 +111,21 @@ function OrdersTable() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
+
+  let temp;
+  const get_recent_order = async () => {
+    await axios.get("http://localhost:7000/user/").then(function (response) {
+      temp = response?.data;
+    });
+    console.log(temp.data[0]);
+    // for(var i=0;i<temp.data.length;i++){
+    //   rows.push(createData(temp.data[i].type,temp.data[i].quantity,temp.data[i].requested,temp.data[i].productstatus,temp.data[i].vendor_name,temp.data[i].pitch_value));
+    // }
+  };
+  useEffect(() => {
+    get_recent_order();
+  }, []);
+  // console.log(rows)
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);

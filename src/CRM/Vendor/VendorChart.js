@@ -21,9 +21,7 @@ const options = {
   y: -10,
   plugins: {
     legend: {
-      labels: {
-        display: false,
-      },
+      display: false,
     },
   },
   layout: {
@@ -52,7 +50,7 @@ const options = {
 const useStyles = makeStyles({
   chart: {
     width: "70vw",
-    marginTop: "-13vh",
+    marginTop: "-4vw",
   },
 });
 

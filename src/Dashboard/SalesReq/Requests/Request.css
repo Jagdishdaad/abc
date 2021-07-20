@@ -1,26 +1,73 @@
-.Card{
-    width:300px;
-    height: 550px;
-    color:white;
-    background: #2D2D2D !important;
-    border: 0.1px solid #FFFFFF;
-    border-radius: 10px !important;
+.Card {
+  width: 35%;
+
+  color: white;
+  background: #2d2d2d !important;
+  border: 0.1px solid #ffffff;
+  border-radius: 10px !important;
 }
-.Status{
-    display:flex;
-    justify-content:row;
-    justify-content:space-between; 
-    margin-top: 30%;
+.Status {
+  display: flex;
+  justify-content: row;
+  justify-content: space-between;
+  margin-top: 30%;
 }
-.icon1{
-    color: #3CC13B;
+.icon1 {
+  color: #3cc13b;
+  width: 2vw !important;
+  height: 2vw !important;
 }
-.icon2{
-    color: yellow;
+.icon2 {
+  color: #ffb600;
+  width: 2vw !important;
+  height: 2vw !important;
 }
-.icon3{
-    color: red;
+.icon3 {
+  color: #f03738;
+  width: 2vw !important;
+  height: 2vw !important;
 }
-.icon4{
-    color: #56CCF2;
+.icon4 {
+  color: #56ccf2;
+  width: 2vw !important;
+  height: 2vw !important;
+}
+.iconText {
+  font-family: Open Sans !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 1.1vw !important;
+  line-height: 1.4vw !important;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.451506px !important;
+  text-transform: capitalize;
+  color: #ffffff;
+}
+.titlereq {
+  font-family: Open Sans !important;
+  font-style: normal;
+  font-weight: bold !important;
+  font-size: 1.2vw !important;
+  line-height: 1.5vw !important;
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.496657px !important;
+  color: #ffffff;
+}
+.subtitle {
+  font-family: Open Sans !important;
+  font-style: normal;
+  font-weight: normal !important;
+  font-size: 0.95vw !important;
+  line-height: 1.5vw !important;
+  /* or 188% */
+
+  display: flex;
+  align-items: center;
+  letter-spacing: 0.282191px !important;
+
+  /* White */
+
+  color: #ffffff;
 }

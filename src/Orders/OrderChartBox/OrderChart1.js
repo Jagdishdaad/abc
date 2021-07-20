@@ -10,7 +10,7 @@ const data = {
       fill: true,
       backgroundColor: "rgba(55, 81, 255, 0)",
       borderColor: "#3751FF",
-      tension: 0.2,
+      tension: 0.4,
     },
     {
       label: "Vendor",
@@ -21,16 +21,20 @@ const data = {
     },
   ],
 };
-const legend = {
-  display: true,
-  position: "bottom",
-  labels: {
-    fontColor: "#FFFFFF",
-    fontSize: 14,
-  },
-};
 
 const options = {
+  plugins: {
+    legend: {
+      display: true,
+      align: "end",
+      labels: {
+        boxHeight: 0.2,
+        boxWidth: 30,
+        color: "#FFFFFF",
+        padding: 15,
+      },
+    },
+  },
   scales: {
     y: {
       beginAtZero: true,
@@ -55,11 +59,11 @@ function OrderChart1() {
   return (
     <div
       style={{
-        width: "45vw",
-        height: "60vh",
+        width: "50vw",
+        marginTop: "-2%",
       }}
     >
-      <Line data={data} legend={legend} options={options} />
+      <Line data={data} options={options} />
     </div>
   );
 }

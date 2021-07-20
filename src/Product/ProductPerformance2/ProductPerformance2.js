@@ -1,6 +1,7 @@
 import { Typography } from "@material-ui/core";
 import { ToggleButton, ToggleButtonGroup } from "@material-ui/lab";
 import React, { useState } from "react";
+import ButtonGroup from "../../ButtonGroup";
 import Chart2 from "./Chart2";
 import ConMatDrop from "./ConMatdrop/ConMatDrop";
 import PopularServices from "./PopularServices/PopularServices";
@@ -12,66 +13,48 @@ function ProductPerformance2() {
   const [ismonth, setismonth] = useState(false);
   const [isyear, setisyear] = useState(false);
 
-  const todayClicked = () => {
-    setistoday(true);
-    setismonth(false);
-    setisyear(false);
-  };
-  const monthClicked = () => {
-    setistoday(false);
-    setismonth(true);
-    setisyear(false);
-  };
-  const yearClicked = () => {
-    setistoday(false);
-    setismonth(false);
-    setisyear(true);
-  };
   return (
     <div className="proPer2">
       <div className="proPer21">
-        <div style={{ display: "flex" }}>
-          <Typography className="proPer2Line1">Product Performance</Typography>
+        <div
+          style={{
+            display: "flex",
+            width: "100%",
+            justifyContent: "space-between",
+          }}
+        >
+          <div
+            style={{ display: "flex", flexDirection: "column", height: "2vw" }}
+          >
+            <Typography className="proPer2Line1">
+              Product Performance
+            </Typography>
+
+            <Typography className="proPer2Line2">
+              as of 12 May 2021, 09:41 PM
+            </Typography>
+          </div>
 
           <ConMatDrop />
         </div>
-        <Typography className="proPer2Line2">
-          as of 12 May 2021, 09:41 PM
-        </Typography>
 
-        <ToggleButtonGroup exclusive className="proPer2btngrp">
-          <ToggleButton
-            onClick={todayClicked}
-            style={{
-              backgroundColor: istoday ? "#ffb600" : "#121417",
-              color: istoday ? "#121417" : "#ffb600",
-              textTransform: "unset",
-            }}
-          >
-            Today
-          </ToggleButton>
-          <ToggleButton
-            onClick={monthClicked}
-            style={{
-              backgroundColor: ismonth ? "#ffb600" : "#121417",
-              color: ismonth ? "#121417" : "#ffb600",
-              textTransform: "unset",
-            }}
-          >
-            Month
-          </ToggleButton>
-          <ToggleButton
-            onClick={yearClicked}
-            style={{
-              backgroundColor: isyear ? "#ffb600" : "#121417",
-              color: isyear ? "#121417" : "#ffb600",
-              textTransform: "unset",
-            }}
-          >
-            Year
-          </ToggleButton>
-        </ToggleButtonGroup>
-        <div style={{ marginTop: "15vh" }}>
+        <div
+          style={{
+            display: "flex",
+            marginTop: "3%",
+            marginLeft: "55%",
+          }}
+        >
+          <ButtonGroup
+            setistoday={setistoday}
+            setismonth={setismonth}
+            setisyear={setisyear}
+            isyear={isyear}
+            istoday={istoday}
+            ismonth={ismonth}
+          />
+        </div>
+        <div style={{ marginTop: "5vw" }}>
           <Chart2 />
         </div>
       </div>

@@ -1,8 +1,8 @@
-.ProductPer{
-    display:flex;
-    flex-direction: column !important;
-    color: white;
-    margin: 1% !important;
-    width: 98%;
-    height: 40%;
+.ProductPer {
+  display: flex;
+  flex-direction: column !important;
+  color: white;
+  margin-top: 5% !important;
+  width: 100%;
+  height: 30%;
 }

@@ -1,17 +1,47 @@
-
-.add-label{
-    width: 300px;
-    height: 150px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: space-between !important;
-    padding: 10%;
-    background: #2D2D2D !important;
-    border: 0.5px solid #FFFFFF;
-    border-radius: 20px !important;   
+.add-label {
+  width: 18vw !important;
+  height: 7vw !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-between !important;
+  padding: 10%;
+  background: #2d2d2d !important;
+  border: 0.01vw solid #ffffff;
+  border-radius: 1.3vw !important;
 }
+.addLabelTitle {
+  font-family: Open Sans !important;
+  font-style: normal !important;
+  font-weight: bold !important;
+  font-size: 1.55vw !important;
+  line-height: 2vw !important;
+  display: flex !important;
+  align-items: center !important;
 
-.add-title{
-    color: #FFFFFF !important;
-    font-weight: bold;
+  /* White */
+
+  color: #ffffff !important;
+}
+.addLabelNumber {
+  font-family: Open Sans !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  font-size: 2vw !important;
+  line-height: 2vw !important;
+  display: flex !important;
+  margin-top: 12% !important;
+  color: #ffffff !important;
+}
+.addLabelText {
+  font-family: Open Sans !important;
+  font-style: normal !important;
+  font-weight: normal !important;
+  font-size: 1.5vw !important;
+  line-height: 2vw !important;
+  display: flex !important;
+  align-items: center !important;
+
+  /* White */
+
+  color: #ffffff;
 }

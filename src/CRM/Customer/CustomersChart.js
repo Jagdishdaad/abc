@@ -20,9 +20,7 @@ const data = {
 const options = {
   plugins: {
     legend: {
-      labels: {
-        display: false,
-      },
+      display: false,
     },
   },
   layout: {

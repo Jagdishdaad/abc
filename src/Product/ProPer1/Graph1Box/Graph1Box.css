@@ -3,7 +3,7 @@
   flex-direction: column;
   justify-content: space-between !important;
   width: 46vw !important;
-  height: 80vh !important;
+  height: 38vw !important;
 
   background: #121417;
 }
@@ -32,27 +32,22 @@
   color: #ffffff;
 }
 .line3 {
-  width: 652px;
-  height: 32px;
-
   font-family: Open Sans !important;
   font-style: normal;
   font-weight: 600 !important;
-  font-size: 24px !important;
-  line-height: 32px !important;
-  display: flex;
-  align-items: center;
+  font-size: 1.8vw !important;
+  line-height: 2.2vw !important;
   color: #ffffff;
-  flex: none;
-  order: 0;
   flex-grow: 1;
-  margin: 0px 10px !important;
 }
 
 .graph1Box1 Button {
-  height: 5vh !important;
-  top: 2vh;
+  height: 2.2vw !important;
+  top: 1vw;
   width: 7vw !important;
   border: 0.1vh solid #ffb600 !important;
   box-sizing: border-box !important;
+}
+.graph1Box2 {
+  margin-top: 5% !important;
 }

@@ -1,9 +1,26 @@
 import { Typography } from "@material-ui/core";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import DoughnutGraph from "./DoughnutGraph";
 import "./ProductSales%.css";
+import axios from "axios";
 
 function ProductSalesper() {
+  let temp;
+
+  const [per, setPer] = useState(0);
+  const getdata = async () => {
+    await axios
+      .get("http://localhost:7000/user/product_sales%")
+      .then(function (response) {
+        temp = response?.data;
+
+        setPer(temp.data);
+      });
+  };
+
+  useEffect(() => {
+    getdata();
+  }, []);
   return (
     <div className="productSalesper">
       <div
@@ -13,17 +30,23 @@ function ProductSalesper() {
         }}
       >
         <Typography className="productSaleperLine1">Product Sales %</Typography>
-        <Typography style={{ color: "#FFB600", fontWeight: "bold" }}>
-          12.5%
-        </Typography>
+        <Typography className="productSaleperLine15">{per}%</Typography>
       </div>
 
       <Typography className="productSaleperLine2">
         Compared to previous month
       </Typography>
 
-      <div>
-        <DoughnutGraph percentage="12.5" />
+      <div
+        style={{
+          dispaly: "flex",
+          width: "14.5vw",
+          height: "14.5vw",
+          marginLeft: "4.5vw",
+          marginTop: "0.5vw",
+        }}
+      >
+        <DoughnutGraph percentage={per} />
       </div>
     </div>
   );

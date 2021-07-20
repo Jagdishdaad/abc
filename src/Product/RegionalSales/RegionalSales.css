@@ -1,14 +1,14 @@
-.Rsp2 {
+.Rsp22 {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   justify-content: space-around;
   margin-bottom: 20vh !important;
 }
-.Rspp1 {
+.Rspp11 {
   display: flex;
-
-  width: 36vw !important;
+  flex-direction: column;
+  margin-left: -6%;
+  width: 42vw !important;
   height: 60vh !important;
 
   background-color: #2d2d2d;

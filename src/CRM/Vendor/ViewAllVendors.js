@@ -6,29 +6,36 @@ import SelectRegion from "../Components/SelectRegion";
 
 import VendorTable from "./VendorTable";
 
-function ViewAllVendors({ setIndex }) {
+function ViewAllVendors({ setIndex, setId }) {
   return (
-    <div style={{ display: "flex", flexDirection: "column" }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        width: "100%",
+        margin: "5% 3% 5% 4.5%",
+      }}
+    >
       <div
         style={{
-          width: "1105px",
+          width: "90%",
           display: "flex",
+          alignItems: "center",
           justifyContent: "space-between",
         }}
       >
-        <div style={{ display: "flex" }}>
+        <div style={{ display: "flex", alignItems: "center" }}>
           <ArrowBack
             style={{
               fill: "#F5F5F5",
               marginTop: "2%",
               marginRight: "3%",
+              cursor: "pointer",
             }}
             onClick={() => setIndex(7)}
           />
           <Typography
             style={{
-              width: "126px",
-              height: "33px",
               fontFamily: "Open Sans",
               fontStyle: "normal",
               fontWeight: 600,
@@ -42,12 +49,13 @@ function ViewAllVendors({ setIndex }) {
           </Typography>
           <Input
             style={{
-              width: "142px",
-              height: "30px",
+              width: "12vw",
+              height: "2.2vw",
               color: "#FFB600",
               border: "1px solid #FFB600",
               boxSizing: "border-box",
-              borderRadius: "4px",
+              borderRadius: "0.3vw",
+              marginTop: "2%",
             }}
             endAdornment={
               <InputAdornment>
@@ -69,16 +77,14 @@ function ViewAllVendors({ setIndex }) {
       </div>
       <Divider
         style={{
-          position: "absolute",
-          width: "1105px",
+          width: "90%",
           height: "0px",
-          left: "295px",
-          top: "185px",
+          marginTop: "1%",
 
-          border: "2px solid #2D2D2D",
+          border: "1px solid #2D2D2D",
         }}
       />
-      <VendorTable />
+      <VendorTable setIndex={setIndex} setId={setId} />
     </div>
   );
 }

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Paper from "@material-ui/core/Paper";
 import Table from "@material-ui/core/Table";
@@ -9,6 +9,11 @@ import TableHead from "@material-ui/core/TableHead";
 import TablePagination from "@material-ui/core/TablePagination";
 import TableRow from "@material-ui/core/TableRow";
 import { Typography } from "@material-ui/core";
+import { Delete, Edit } from "@material-ui/icons";
+import DeleteProduct from "./DeleteProduct";
+import EditProduct from "./EditProduct";
+import Deleteicon from "./ProductIcons/Delete.svg";
+import Editicon from "./ProductIcons/edit.svg";
 const columns = [
   { id: "product", label: "Product", align: "center" },
   { id: "service", label: "Service", align: "center" },
@@ -151,7 +156,7 @@ const useStyles = makeStyles({
   root: {
     padding: "6vh",
     background: "#121417 !important",
-    boxSizing: "border-box",
+    borderBottom: "none !important",
   },
   container: {
     borderTop: "1px solid #F5F5F5",
@@ -174,26 +179,22 @@ const useStyles = makeStyles({
     width: "5px",
     borderLeft: "1px solid #F5F5F5",
     borderRight: "1px solid #F5F5F5",
+    borderBottom: "none",
   },
-  row: { height: "40 !important", padding: "0px 0px 0px" },
+  row: { height: "40 !important", padding: "0px 0px 0px", border: "none" },
   footer: { color: "#F5F5F5" },
 
   heading: {
     position: "absolute",
     width: "372.84px",
     height: "33px",
-    // left: "368px",
-    // top: "1618px",
+
     fontFamily: "Open Sans",
     fontStyle: "normal",
     fontWeight: "bold",
     fontSize: "24px",
     lineHeight: "33px",
-    /* identical to box height */
-
     letterSpacing: "0.4px",
-
-    /* White */
 
     color: "#FFFFFF",
   },
@@ -202,10 +203,19 @@ const useStyles = makeStyles({
 function ProductList() {
   const classes = useStyles();
   const [page, setPage] = React.useState(0);
-  const [rowsPerPage, setRowsPerPage] = React.useState(10);
+  const rowsPerPage = 10;
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
+  };
+  const [showEdit, setShowEdit] = useState(false);
+  const [showDelete, setShowDelete] = useState(false);
+
+  const handleEditOpen = () => {
+    setShowEdit(true);
+  };
+  const handleDeleteOpen = () => {
+    setShowDelete(true);
   };
 
   return (
@@ -214,7 +224,6 @@ function ProductList() {
         <Typography className={classes.heading}>Product List</Typography>
         <TablePagination
           rowsPerPageOptions={[]}
-          //   rowsPerPageOptions={[10, 25, 100]}
           component="div"
           count={rows.length}
           rowsPerPage={rowsPerPage}
@@ -257,6 +266,26 @@ function ProductList() {
                             align="center"
                             className={classes.column}
                           >
+                            {column.label === "Action" && (
+                              <>
+                                {" "}
+                                <img
+                                  src={Editicon}
+                                  style={{ cursor: "Pointer" }}
+                                  onClick={handleEditOpen}
+                                />
+                                <img
+                                  src={Deleteicon}
+                                  style={{
+                                    cursor: "Pointer",
+                                    marginLeft: "1vw",
+                                    height: "1.7vw",
+                                    width: "1.2vw",
+                                  }}
+                                  onClick={handleDeleteOpen}
+                                />
+                              </>
+                            )}{" "}
                             {column.format && typeof value === "number"
                               ? column.format(value)
                               : value}
@@ -269,6 +298,8 @@ function ProductList() {
             </TableBody>
           </Table>
         </TableContainer>
+        <DeleteProduct showDelete={showDelete} setShowDelete={setShowDelete} />
+        <EditProduct showEdit={showEdit} setShowEdit={setShowEdit} />
       </Paper>
     </div>
   );

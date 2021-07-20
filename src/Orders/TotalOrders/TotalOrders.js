@@ -7,12 +7,12 @@ function TotalOrders() {
       style={{
         display: "flex",
         flexDirection: "column",
-        marginTop: "5%",
-        width: "294px",
-        height: "291px",
+        marginTop: "2vw",
+        width: "18vw",
+        height: "20vw",
         justifyContent: "space-between",
         background: "#121417",
-        borderRadius: "4px",
+        borderRadius: "0.5vw",
       }}
     >
       <TotalOrdersCom

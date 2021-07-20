@@ -1,34 +1,30 @@
 .proPer2 {
   display: flex;
-  width: 100%;
-
+  width: 93%;
   justify-content: space-between;
-  justify-content: space-around;
-  margin-top: 10vh;
+  margin: 6% 3.5% 3.5% 3.5%;
 }
 .proPer21 {
-  width: 40vw;
-  height: 80vh;
+  display: "flex";
+  flex-direction: column;
+  width: 45vw;
+  height: 39vw;
 }
 .proPer2Line1 {
-  height: 5vh;
   font-family: Open Sans !important;
   font-style: normal;
   font-weight: bold !important;
-  font-size: 24px !important;
-  line-height: 33px !important;
+  font-size: 1.8vw !important;
+  line-height: 3.2vw !important;
   letter-spacing: 0.4px !important;
-
   color: #ffffff;
 }
 .proPer2Line2 {
-  width: 429px;
-  height: 22px;
-  font-family: Mulish;
+  font-family: Open Sans !important;
   font-style: normal !important;
   font-weight: normal;
-  font-size: 12px !important;
-  line-height: 16px !important;
+  font-size: 0.9vw !important;
+  line-height: 1vw !important;
   letter-spacing: 0.1px !important;
   color: #ffffff;
 }
@@ -39,10 +35,9 @@
 }
 
 .proPer2btngrp Button {
-  height: 5vh !important;
-  top: 2vh;
-  margin-left: 30vh;
-  width: 13vh !important;
-  border: 0.1vh solid #ffb600 !important;
+  height: 2.2vw !important;
+  margin-left: 12vw;
+  width: 6vw !important;
+  border: 0.1vw solid #ffb600 !important;
   box-sizing: border-box !important;
 }

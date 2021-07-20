@@ -1,24 +1,42 @@
-import React from 'react'
-import PerChart from './PerChart/PerChart'
- import './ProductPer.css' 
- import NativeSelects from './PerChart/Button.js'
+import React from "react";
+import PerChart from "./PerChart/PerChart";
+import "./ProductPer.css";
+
+import { Typography } from "@material-ui/core";
+import ProductDrop from "./ProductDrop";
 
 function ProductPer() {
-    return (
-        <div className="ProductPer">
-        <div style={{display:'flex',flexDirection:'row', justifyContent:'space-between'}}>
-             <div style={{fontSize:'30px'}}>
-             Product Performace
-             </div>
-                  <div style={{backgroundColor:'#FFB600', marginBottom:'1%',borderRadius:'10px',width: "142px",height: "40px"}}>
-                  <NativeSelects />
-                  </div> 
-          </div>
-          <div >
-            <PerChart/>
-        </div>
+  return (
+    <div className="ProductPer">
+      <div
+        style={{
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+        }}
+      >
+        <Typography
+          style={{
+            fontFamily: "Open Sans",
+            fontStyle: "normal",
+            fontWeight: "bold",
+            fontSize: "2vw",
+            lineHeight: "2.5vw",
+            letterSpacing: "0.4px",
+            color: "#FFFFFF",
+            marginLeft: "1%",
+          }}
+        >
+          Product Performace
+        </Typography>
+
+        <ProductDrop />
       </div>
-    )
+      <div>
+        <PerChart />
+      </div>
+    </div>
+  );
 }
 
-export default ProductPer
+export default ProductPer;

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -7,32 +7,44 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import "./TopProduct.css";
+import axios from "axios";
 
-function createData(name, sales) {
-  return { name, sales };
+function createData(type, count) {
+  return { type, count };
 }
 
-const rows = [
-  createData("Cement", 31000),
-  createData("Crane", 30000),
-  createData("Bricks", 29000),
-  createData("Cemente", 31000),
-  createData("Crane", 30000),
-  createData("Bricks", 29000),
-  createData("Cement", 31000),
-];
-
 function TopProduct() {
+  let temp;
+  let temparr = [];
+  const [topP, settopP] = useState([]);
+  useEffect(() => {
+    const fetchTopProducts = async () => {
+      try {
+        const response = await axios.get(
+          "http://localhost:7000/user/top_product_month"
+        );
+        temp = response?.data;
+        for (var i = 0; i < temp.data.length; i++) {
+          temparr.push(createData(temp.data[i].type, temp.data[i].count));
+        }
+        settopP(temparr);
+      } catch (e) {
+        console.log(e);
+      }
+    };
+    fetchTopProducts();
+  }, []);
+
   return (
     <div>
       <TableContainer component={Paper} className="Tablestyle">
         <Table aria-label="simple table">
-          <TableHead>
+          <TableHead style={{ border: "0.2vw solid #121417" }}>
             <TableRow
               style={{
-                border: "0.1vh solid #121417",
+                border: "0.1vw solid #121417 !important",
 
-                borderRadius: "0.4vh 0.4vh 0vh 0vh",
+                borderRadius: "0.2vw 0.2vw 0vh 0vh",
               }}
             >
               <TableCell
@@ -41,11 +53,11 @@ function TopProduct() {
                   fontStyle: "normal",
                   fontWeight: "bold",
                   fontSize: "1rem",
-                  lineHeight: "2vh",
-                  letterSpacing: "0.04vh",
+                  lineHeight: "1vw",
+                  letterSpacing: "0.04vw",
                   color: "#FFFFFF",
-                  paddingTop: "3vh",
-                  paddingBottom: "3vh",
+                  // paddingTop: "3vh",
+                  // paddingBottom: "3vh",
                 }}
               >
                 Top Product
@@ -53,8 +65,8 @@ function TopProduct() {
               <TableCell
                 style={{
                   color: "#FFFFFF",
-                  paddingTop: "3vh",
-                  paddingBottom: "3vh",
+                  // paddingTop: "3vh",
+                  // paddingBottom: "3vh",
                 }}
               >
                 (Month)
@@ -62,8 +74,11 @@ function TopProduct() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {rows.map((row) => (
-              <TableRow key={row.name}>
+            {topP?.map((temp) => (
+              <TableRow
+                key={temp?.type}
+                style={{ border: "0.2vw solid #121417" }}
+              >
                 <TableCell
                   component="th"
                   scope="row"
@@ -72,18 +87,18 @@ function TopProduct() {
                     fontStyle: "normal",
                     fontWeight: 600,
                     fontSize: "1rem",
-                    lineHeight: "3vh",
-                    letterSpacing: "0.04vh",
+                    lineHeight: "1vw",
+                    letterSpacing: "0.04vw",
                     color: "#FFFFFF",
-                    border: "0.1vh solid #121417",
+
                     boxSizing: "border-box",
                     borderRight: "0",
-                    paddingTop: "2.7vh",
-                    paddingBottom: "2.7vh",
-                    borderRadius: "0.4vh 0.4vh 0vh 0vh",
+                    // paddingTop: "2.7vh",
+                    // paddingBottom: "2.7vh",
+                    borderRadius: "0.2vw 0.2vw 0vh 0vh",
                   }}
                 >
-                  {row.name}
+                  {temp?.type}
                 </TableCell>
                 <TableCell
                   align="right"
@@ -92,18 +107,18 @@ function TopProduct() {
                     fontStyle: "normal",
                     fontWeight: 600,
                     fontSize: "1rem ",
-                    lineHeight: "4vh",
-                    letterSpacing: "0.04vh",
+                    lineHeight: "2vw",
+                    letterSpacing: "0.04vw",
                     color: "#FFFFFF",
-                    border: "0.1vh solid #121417",
+
                     boxSizing: "border-box",
                     borderLeft: "0",
-                    paddingTop: "2.7vh",
-                    paddingBottom: "2.7vh",
-                    borderRadius: "0.4vh 0.4vh 0vh 0vh",
+                    // paddingTop: "2.7vh",
+                    // paddingBottom: "2.7vh",
+                    borderRadius: "0.2vw 0.2vw 0vh 0vh",
                   }}
                 >
-                  {row.sales}
+                  {temp?.count}
                 </TableCell>
               </TableRow>
             ))}

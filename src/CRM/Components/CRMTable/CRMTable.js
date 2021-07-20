@@ -68,7 +68,10 @@ function CRMTable(props) {
                             {column.label === "Actions" && (
                               <Typography
                                 style={{ cursor: "pointer" }}
-                                onClick={() => props.setIndex(props.value)}
+                                onClick={() => {
+                                  props.setId(row.id);
+                                  props.setIndex(props.value);
+                                }}
                               >
                                 view
                               </Typography>
